@@ -1,0 +1,29 @@
+.NotFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    flex-direction: column;
+}
+
+.NotFound h2 {
+    color: white;
+    text-align: center;
+    background-color: rgb(73, 73, 73);
+    width: 50vw;
+    border-radius: 1vh;
+    font-size: 4vh;
+    letter-spacing: 0.2vh;
+}
+
+.NotFound>a {
+    color: white;
+    text-underline-offset: 1vh;
+
+}
+
+.NotFound h2>a {
+    text-underline-offset: 1vh;
+    color: white;
+    color: lightblue;
+}

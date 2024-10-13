@@ -1,0 +1,264 @@
+.RegisterOuterContainerHealthCare {
+    height: 130vh;
+}
+
+.RegisterLable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 1vh 4vh;
+    font-size: 2.5vh;
+}
+
+.RegisterLable p:nth-child(1) {
+    text-decoration: underline;
+    text-underline-offset: 1.5vh;
+}
+
+.RegisterLable p:nth-child(2) {
+    font-size: 2vh;
+}
+
+.RegisterLable p:nth-child(2) span {
+    text-decoration: underline;
+    text-underline-offset: 0.5vh;
+}
+
+.RegisterBox {
+    background-color: rgb(39, 36, 36);
+    box-shadow: 8px 7px 20px 5px rgb(0 0 0);
+    padding: 4vh;
+    margin: 2vh;
+    border-radius: 1vh;
+    width: 50vw;
+
+}
+
+.WelcomeGreetings {
+    font-size: 4vh;
+    text-align: center;
+    color: white;
+}
+
+.WelcomeGreetings:after {
+    content: '';
+    width: 35vw;
+    margin: 0.5vh 0 0 6vh;
+    height: 0.4vh;
+    background-color: yellow;
+    position: relative;
+    display: block;
+}
+
+.RegisterBox form {
+    font-size: 2.3vh;
+}
+
+.RegisterBox form label:nth-child(n) {
+    color: white;
+    width: 13vw;
+    display: inline-block;
+    margin: 1vh;
+}
+
+.RegisterBox form input {
+    padding-left: 1vh;
+    border-radius: 0.5vh;
+    height: 4.5vh;
+    width: 25vw;
+    margin: 1.5vh;
+    border: none;
+    font-size: 2.5vh;
+}
+
+input:focus {
+    outline: none;
+}
+
+.Registerbtn {
+    margin: 3vh;
+    flex-direction: column;
+}
+
+.Registerbtn button {
+    border: none;
+    font-size: 2.5vh;
+    width: 35vw;
+    border-radius: 0.5vh;
+    height: 5vh;
+    text-align: center;
+    background-color: yellow;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+
+.Registerbtn button:hover {
+    color: white;
+    background-color: rgb(61, 61, 61);
+}
+
+.Registerbtn button:active {
+    background-color: green;
+    color: black;
+}
+
+/* Login Button Redirect here */
+.LoginbtnRedirect {
+    font-size: 2.4vh;
+    color: wheat;
+    text-align: center;
+}
+
+.LoginbtnRedirect span {
+    text-decoration: underline;
+    cursor: pointer;
+    color: gray;
+}
+
+/* This will Is showing Status of The Current page */
+.StatusAfterSubmitBtn h1 {
+    animation: UpandDown 0.5s linear 1 forwards;
+    animation-fill-mode: forwards;
+}
+
+@keyframes UpandDown {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+.StatusAfterSubmitBtn {
+    position: absolute;
+    z-index: 1000;
+    top: 130vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6vh;
+    color: wheat;
+}
+
+.StatusAfterSubmitBtn h1 {
+    background-color: rgb(58, 57, 57);
+    padding: 2vh 4vh;
+    border-radius: 1vh;
+}
+
+.DiplayNone {
+    display: none;
+}
+
+.DisplayOpacity {
+    opacity: 0.2;
+}
+
+
+/* Password Match Txt Goes Here */
+.PasswordMatchtxt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: wheat;
+}
+
+#RegisterPasswordStatus {
+    text-align: center;
+    margin: 0;
+}
+
+.registerHealthCaretextareaContainer {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.registerHealthCaretextarea {
+    outline: none;
+    border-radius: 0.5vh;
+    padding: 1vh;
+    font-size: 2vh;
+    text-align: start;
+}
+
+.HelptextinRegister {
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 2vh;
+}
+
+.TermsandConditions {
+    color: white;
+}
+
+/* For PopOver Goes Here */
+.Popoverdropbox {
+    position: absolute;
+    width: 99vw;
+    height: 10vh;
+    backdrop-filter: filter(10px);
+}
+
+.displayFlexWithR {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.PopOvercontainerBoxregisterpage {
+    text-align: center;
+    font-size: 1.7vh;
+    color: white;
+    /* font-size: 2vh; */
+    border-radius: 0.5vh;
+    background-color: rgb(70, 70, 70);
+    padding: 2vh;
+    max-width: 40vw;
+}
+
+#AtregisterPage {
+    border: none;
+    padding: 1vh 3vw;
+    cursor: pointer;
+    background-color: yellow;
+    border-radius: 0.6vh;
+}
+
+#AtregisterPage:hover {
+    background-color: rgb(110, 110, 16);
+}
+
+.PopOvercontainerBoxregisterpage>a {
+    color: rgb(0, 0, 0);
+    display: inline-block;
+    font-size: 2.5vh;
+    text-decoration: none;
+    background-color: yellow;
+    padding: 1vh 2vw;
+    border-radius: 1vh;
+    font-weight: bolder;
+    letter-spacing: 0.1vh;
+}
+
+.PopOvercontainerBoxregisterpage>a:hover {
+    background-color: rgb(131, 131, 45);
+    color: white;
+}
+
+.RegisterPagetxt {
+    padding: 1vh 1vw;
+    font-size: 2vh;
+    max-width: 15vw;
+}
+
+.RegisterPagetxt li>a {
+    color: lime;
+    text-underline-offset: 0.6vh;
+}

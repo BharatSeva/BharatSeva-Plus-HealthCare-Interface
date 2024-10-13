@@ -1,0 +1,141 @@
+.ViewPR {
+    width: 70vw;
+}
+
+.ViewPR h2:nth-child(1) {
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+}
+
+.ViewPR label {
+    display: block;
+    padding: 0.3vh;
+}
+
+#HID_input {
+    width: 24vw;
+    height: 4vh;
+    padding: 1vh;
+    font-size: 2.5vh;
+    border: none;
+    border-radius: 0.5vh;
+    transition: 0.2s linear;
+}
+
+#HID_input:is(:hover, :focus) {
+    box-shadow: 5px 5px 9px rgb(39, 39, 39);
+    transform: scale(1.02);
+}
+
+.SearchIcon {
+    display: inline-block;
+    margin-left: 4vh;
+    background-color: lightyellow;
+    padding: 1.3vh 2vw;
+    border-radius: 1vh;
+    cursor: pointer;
+    color: black;
+    /* width: 2vw; */
+}
+
+.SearchIcon:is(:hover, :focus) {
+    box-shadow: 5px 5px 9px rgb(39, 39, 39);
+    transform: scale(1.04);
+}
+
+.SearchIcon:is(:hover, :focus)>.fa-magnifying-glass {
+    transition: 0.5s linear;
+    rotate: 360deg;
+}
+
+
+
+
+
+
+.ViewPR_inputHID::after {
+    margin: 1vh 0 1vh 0;
+    display: block;
+    content: '';
+    position: relative;
+    background-color: rgb(201, 201, 7);
+    width: 70vw;
+    height: 0.3vh;
+}
+
+
+
+
+
+
+.redLabel {
+    color: red;
+}
+
+.ViewPatient_Re {
+    background-color: rgb(63, 63, 63);
+    padding: 2vh;
+    margin-top: 2vh;
+    width: 70vw;
+    border-radius: 1vh;
+    transition: 0.2s linear;
+    box-shadow: 15px 15px 9px rgb(66, 66, 66);
+}
+
+.ViewPatient_Re:hover {
+    box-shadow: 15px 15px 9px rgb(31, 30, 30);
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.ViewPatient_Re li {
+    display: flex;
+}
+
+.ViewPatient_Re p:nth-child(even) {
+    display: inline-block;
+    margin: 0.2vh;
+    width: 58vw;
+}
+
+.ViewPatient_Re p:nth-child(odd)::before {
+    margin: 0 0.5vw 0 0vw;
+    content: '';
+    position: relative;
+    display: inline-block;
+    background-color: rgb(209, 209, 209);
+    height: 1vh;
+    width: 0.5vw;
+    border-radius: 1vh;
+}
+
+.ViewPatient_Re p:nth-child(odd) {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    width: 12vw;
+}
+
+.FetchedPatientRecords {
+    padding-bottom: 5vh;
+}
+
+.PatientRecordDate {
+    font-style: italic;
+}
+
+#FilterPatientRecords {
+    width: 13vw;
+    color: black;
+    font-weight: bolder;
+    display: inline-block;
+    margin: 0 1vw 0 3vw;
+
+}
+
+.bgblue {
+    background-color: lime;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    box-shadow: 0 0 30px lime;
+}

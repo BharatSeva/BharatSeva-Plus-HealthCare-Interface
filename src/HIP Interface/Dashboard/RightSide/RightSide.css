@@ -1,0 +1,31 @@
+::-webkit-scrollbar{
+    width: 0.7vw;
+    border-radius: 3vh;
+}
+::-webkit-scrollbar-track{
+    background-color: black;
+}
+::-webkit-scrollbar-thumb{
+    background-color: gray;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(59, 58, 58);
+}
+
+
+.RightSideBar{
+    display: inline;
+    width: 80vw;
+    background-color: rgb(75, 74, 74);
+    height: 94vh;
+    transition: 0.2s linear;
+    overflow-y: scroll;
+}
+.ToggleTo100{
+    width: 100vw;
+}
+
+.DisplayFlexJustify{
+    display: flex;
+    justify-content: space-around;
+}

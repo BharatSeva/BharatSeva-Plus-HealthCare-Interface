@@ -1,0 +1,97 @@
+.PatientProblemRecord{
+    height: 110vh;
+}
+.PatientProblemRecord h2{
+    text-align: center;
+}
+.PatientProblemRecord h2::after{
+    content: '';
+    position: relative;
+    display: block;
+    background-color: yellow;
+    width: 41vw;
+    height: 0.3vh;
+}
+.PatientProblemRecordCreator{
+    margin: 3vh;
+    box-shadow: 3px 3px 9px rgb(31, 30, 30);
+    padding: 3vh 9vh;
+}
+.PatientProblemRecord form label:nth-child(n){
+    display: block;
+    font-size: 2.5vh;
+    margin-top: 3vh;
+}
+
+.PatientProblemRecord form input:nth-child(n){
+    width: 40vw;
+    height: 4vh;
+    padding: 1vh;
+    font-size: 2.5vh;
+    border-radius: 1vh;
+}
+
+.PatientProblemRecord form textarea:nth-child(n){
+    padding: 1vh;
+    width: 40vw;
+    height: 15vh;
+    font-size: 2.5vh;
+    border-radius: 1vh;
+    
+}
+
+.PatientProblemRecord form textarea:focus{
+    outline: none;
+}
+
+.SelectOptions{
+    color: black;
+}
+#CreateRecordBtn{
+    margin-top: 2vh;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5vh;
+    width: 41.4vw;
+    height: 5vh;
+    color: white;
+    background-color: rgb(32, 32, 34);
+    box-shadow: 4px 4px 9px black;
+}
+
+.PatientProblemRecord_view{
+    background-color: gray;
+    border-radius: 1vh 5vh;
+    padding: 1vh 2vw;
+    position: absolute;
+    top: 7vh;
+    right: 2vw;
+    box-shadow: 5px 5px 9px black;
+    animation: Patient_Record 10s ease-in 1;
+    animation-fill-mode: forwards;
+    max-width: 40vw;
+
+}
+.Display_none{
+    display: none;
+}
+
+@keyframes Patient_Record {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+.WarningCr_patient{
+    color: yellow;
+    margin: 2vh 0 0 0;
+    padding: 0;
+}
+.CreateRecordsTxtlimit{
+    margin: 0;
+}
+.Overtxtarea{
+    border: 2px solid red;
+}

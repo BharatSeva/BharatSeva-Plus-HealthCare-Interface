@@ -1,0 +1,192 @@
+.LoginMessageHealthCare{
+    position: absolute;
+    padding: 0vh 2vh;
+    font-size: 2vh;
+    top: 1vh;
+    left: 1vw;
+    color: white;
+    max-width: 40vw;
+    background-color: rgb(49, 49, 49);
+    box-shadow: 0 0 10px black;
+    border-radius: 0.5vh;
+}
+.DisplayNone{
+    display: none;
+}
+
+
+
+.LoginPageContainer {
+    display: flex;
+    height: 100vh;
+
+}
+.HealthCareLoginUpperTxt{
+    position: absolute;
+    top: 94vh;
+    left: 0;
+    z-index: 1;
+    color: white;
+
+    padding: 1.5vh 2vh;
+
+}
+.HealthCareLoginUpperTxt p{
+    margin: 0;
+    font-size: 2vh;
+}
+.HealthCareLoginUpperTxt p span{
+    text-decoration: underline;
+    text-underline-offset: 0.6vh;
+}
+
+
+
+.LoginForHealthCare_rightSide {
+    flex-direction: column;
+    width: 50vw;
+    
+}
+
+/* Login Form Left Side Starts From */
+
+.HealthCareLoginFormContainer{
+    color: white;
+}
+.HealthCareLoginFormContainer form{
+    font-size: 2.3vh;
+    border-radius: 1vh;
+    width: 40vw;
+    background-color: rgb(39, 37, 37);
+    box-shadow: 2px 2px 10px black;
+    padding: 1vh 3vh;
+}
+.Healthcarebannertxt{
+    font-size: 3vh;
+    text-align: center;
+    padding: 2vh 0vh;
+    
+}
+.Healthcarebannertxt:after{
+    content: '';
+    width: 35vw;
+    height: 0.3vh;
+    background-color: yellow;
+    position: relative;
+    display: block;
+    margin: 0 0 0 2.1vw;
+}
+
+
+
+.HealthCareLoginFormContainer form label:nth-child(n){
+    display: inline-block;
+    width: 15vw;
+    margin: 2vh 0;
+}
+.HealthCareLoginFormContainer form input{
+    border: none;
+    border-radius: 0.6vh;
+    width: 20vw;
+    height: 4vh;
+    padding: 0vh 1vh;
+    font-size: 2vh;
+}
+#LoginBtn{
+    margin-top: 3vh;
+    margin-left: 10vw;
+    font-size: 2vh;
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+#LoginBtn:hover{
+    background-color: gray;
+    color: white;
+}
+#LoginBtn:active{
+    background-color: green;
+    color: white;
+}
+#LoginBtn:-moz-loading{
+    background-color: black;
+}
+/* Registered Button Goes Here */
+.NotRegisteredRedirectbtn{
+    font-size: 2vh;
+    /* margin: 0; */
+}
+.NotRegisteredRedirectbtn p{
+    margin: 0 0 1vh 0;
+}
+
+.NotRegisteredRedirectbtn a{
+    color: white;
+    text-decoration: underline;
+    text-underline-offset: 0.4vh;
+}
+
+/* Below Text Container Goes here */
+.LoginHealthcarebelowtxt{
+    color: white;
+    font-size: 1.8vh;
+    background-color: rgb(32, 32, 32);
+    border-radius: 0.5vh;
+    padding: 1vh 1vw;
+}
+.LoginHealthcarebelowtxt p{
+    text-align: center;
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+
+}
+
+
+
+
+
+
+
+
+/* Login Form Right Side Start From Here */
+
+.LoginRightSideImage {
+    width: 50vw;
+    background: url("../../ImagesAssests/LoginPageImage.jpg") no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    color: white;
+
+    flex-direction: column;
+    
+}
+.LoginRightSideTxtcontainer{
+    flex-direction: column;
+    font-size: 3vh;
+    backdrop-filter: blur(4px);
+    padding: 4vh;
+    border-radius: 1vh;
+    box-shadow: 2px 2px 10px rgb(59, 59, 59);
+}
+.LoginRightSideTxtcontainer p{
+    margin: 1vh;
+    /* text-decoration: underline;
+    text-underline-offset: 0.6vh; */
+}
+.LoginRightSideTxtcontainer p:nth-child(2) span{
+    color: yellow;
+    font-weight: bolder;
+}
+
+.AboutCreterMrVaibhav{
+    padding: 4vh;
+    color: red;
+    font-weight: bolder;
+    font-size: 3vh;
+}
+/* Image Side Header Goes Here */
+.LoginRideSideImage_Header p{
+    font-size: 5vh;
+    font-weight: bolder;
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+}

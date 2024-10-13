@@ -1,0 +1,104 @@
+.LeftSide_textContainer ul .IsActive {
+    color: rgb(250 120 120);
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgb(243, 48, 48), 0 0 10px rgb(255 0 0);
+    letter-spacing: 0.1vh;
+    display: inline-block;
+    background-color: rgb(71, 71, 71);
+}
+
+.LeftSide_textContainer ul>a {
+    color: white;
+    text-decoration: none;
+}
+
+.LeftSideBarContainer {
+    display: inline;
+    box-shadow: inset 0px 4px 20px 0px #0c0c0c;
+    margin: 0;
+    color: white;
+    height: 94vh;
+    width: 3vw;
+    background-color: rgb(41, 41, 41);
+    transition: 0.2s linear;
+}
+
+.ToggleTo0 {
+    width: 20vw;
+}
+
+.Displaynone {
+    display: none;
+}
+
+.LeftSide_textContainer ul {
+    width: 20vw;
+    padding: 0;
+}
+
+.LeftSide_textContainer ul li:nth-child(n) {
+    font-size: 2.3vh;
+    border-radius: 1vh;
+    cursor: pointer;
+    width: 20vw;
+    height: 4vh;
+    padding: 0.5vh;
+    list-style-type: none;
+}
+
+.LeftSide_textContainer ul li:nth-child(n) i {
+    margin: 0 1vw 0 0.7vw;
+}
+
+
+.LeftSide_textContainer ul li:nth-child(n):hover {
+    background-color: rgb(71, 71, 71);
+}
+
+.SettingNavbar {
+    display: inline-block;
+    width: 15vw;
+    transition: 0.5s linear;
+}
+
+.settinghealthcaredown {
+    display: inline-block;
+    margin-right: 5vw;
+}
+
+/* Setting DropDown Starts From Here */
+.SettingDropDownMenu {
+    height: 30vh;
+}
+
+.Settingpopups {
+    margin: 0 0 0 6vh;
+    transition: 3s;
+    color: rgb(150, 150, 150);
+}
+
+.DisplayToggleSetting {
+    display: none;
+}
+
+.TextContainerDownSide {
+    margin: 22vh 0 0 0;
+    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    color: rgb(216, 216, 216);
+    border-top: 1px solid gray;
+}
+
+.TextContainerDownSide p {
+    font-size: 1.5vh;
+    margin: 0;
+    width: 5vw;
+    text-align: center;
+}
+
+.TextContainerDownSide p:hover {
+    cursor: pointer;
+    color: gray;
+}

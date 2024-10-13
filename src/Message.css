@@ -1,0 +1,26 @@
+.AllMessageBharatSeva {
+    position: absolute;
+    color: white;
+    right: 2vw;
+    font-size: 2.5vh;
+    background-color: rgb(68, 68, 68);
+    padding: 1vh 2vw;
+    border-radius: 1vh;
+
+    animation: Patient_Record 10s ease-in 1;
+    animation-fill-mode: forwards;
+}
+
+.Display_none {
+    display: none;
+}
+
+@keyframes Patient_Record {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,42 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: rgb(49, 49, 49);
+  user-select: none;
+}
+
+.DisplayFlexjustifyAlignitem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transition4OneSecond {
+  transition: 0.5s linear;
+}
+
+
+/* For Smaller Screen For Now Only!! */
+.displaySmallscreentext {
+  display: none;
+  text-align: center;
+  padding: 5vh;
+}
+
+.displaySmallscreentext h2,
+h4 {
+  text-decoration: underline;
+  text-underline-offset: 0.5vh;
+}
+
+@media screen and (max-width: 900px) {
+  .DisplaySmallScreen {
+    display: none;
+  }
+
+  .displaySmallscreentext {
+    color: white;
+    display: inline-block;
+  }
+}

@@ -1,0 +1,39 @@
+#HID_inputBIOData {
+    width: 24vw;
+    height: 4vh;
+    padding: 1vh;
+    font-size: 2.5vh;
+    border: none;
+    border-radius: 0.5vh;
+    transition: 0.2s linear;
+}
+#HID_inputBIOData:is(:hover, :focus){
+    box-shadow: 5px 5px 9px rgb(39, 39, 39);
+    transform: scale(1.02);
+}
+.PatientBioData{
+    width: 45vw;
+    text-align: left;
+    font-size: 2.5vh;
+    padding:  3vh 0 5vh 3vh;
+}
+.PatientBioData div p:nth-child(odd){
+    padding: 0.6vh 3vh;
+    width: 20vw;
+}
+.ViewPatientDataContainer{
+    border-radius: 0.9vh;
+    padding: 2vh 3vh; 
+    transition: 0.3s linear;
+    box-shadow: 5px 5px 9px rgb(56, 56, 56);
+}
+.ViewPatientDataContainer div p:nth-child(n){
+    display: inline-block;
+    margin: 0.7vh;
+}
+.ViewPatientDataContainer div p:nth-child(odd){
+    width: 15vw;
+}
+.ViewPatientDataContainer:is(:hover, :focus){
+    box-shadow: 5px 5px 9px black;
+}

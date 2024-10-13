@@ -1,0 +1,97 @@
+.CreatePatient {
+    box-shadow: 3px 3px 9px black;
+    padding: 5vh 15vh;
+    border-radius: 0.6vh;
+    height: 249vh;
+}
+
+.CreatePatient h2 {
+    text-decoration: underline;
+    text-underline-offset: 1vh;
+}
+
+.CreateContainer {
+    padding-bottom: 10vh;
+}
+
+.PDContainer {
+    color: white;
+    width: 35vw;
+    height: 3.5vh;
+    border-radius: 0.7vh;
+    border: none;
+    font-size: 2.5vh;
+    padding: 1vh;
+    background-color: gray;
+    transition: 0.3s linear;
+}
+
+.PDContainer::placeholder {
+    color: rgb(216, 216, 216);
+}
+
+.PDContainer:is(:hover, :focus) {
+    scale: 1.04;
+}
+
+.CreateContainer form label:nth-child(n) {
+    display: inline-block;
+    margin-top: 3vh;
+}
+
+.PDC {
+    background-color: gray;
+    color: rgb(54, 54, 54);
+}
+
+#SubmitBtnPDC {
+    margin-top: 3vh;
+    padding: 1.5vh;
+    font-size: 2.5vh;
+    border: none;
+    border-radius: 0.6vh;
+    width: 36vw;
+    cursor: pointer;
+    background-color: rgb(44, 44, 44);
+    box-shadow: 3px 3px 19px rgb(44, 44, 44);
+    color: white;
+}
+
+#SubmitBtnPDC:hover {
+    background-color: rgb(0, 19, 105);
+    box-shadow: 3px 3px 19px rgb(0, 19, 105);
+}
+
+#SubmitBtnPDC:active {
+    background-color: gray;
+}
+
+.CreatePatient_viewAfterSuccess {
+    position: absolute;
+    top: 9vh;
+    right: 2vw;
+    z-index: 100;
+    background-color: gray;
+    padding: 0vh 1vw;
+    backdrop-filter: blur(9px);
+    border-radius: 1vh;
+    font-size: 2.5vh;
+    box-shadow: 4px 4px 9px rgb(31, 31, 31);
+    max-width: 40vw;
+    /* animation: DisplayMeOnSuccess 5s ease-in 1; */
+    /* animation-fill-mode: forwards; */
+}
+.Display_none{
+    visibility: hidden;
+}
+
+
+@keyframes DisplayMeOnSuccess {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

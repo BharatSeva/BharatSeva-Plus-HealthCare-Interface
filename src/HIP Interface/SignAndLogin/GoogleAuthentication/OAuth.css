@@ -1,0 +1,43 @@
+.GoogleAuthContainer {
+    margin: 0 0 0 27vh;
+    padding: 0;
+
+}
+
+#GoogleDesign p {
+    cursor: pointer;
+    box-shadow: 4px 4px 6px 1px black;
+    font-family: poppins;
+    background-color: white;
+    color: black;
+    padding: 0.5vh 1vw;
+    width:9vw;
+    border-radius: 0.6vh;
+    font-weight: bolder;
+    font-size: 1.8vh;
+    height: 3vh;
+}
+
+#GoogleDesign img {
+    margin: 0vh 0 0 0;
+    height: 2.5vh;
+    width: 1.3vw;
+    border-radius: 0.6vh;
+}
+
+
+/* Oauthstatus */
+.OAuthstatustxt{
+    background-color: rgb(53, 53, 53);
+    position: absolute;
+    top: 1vh;
+    left: 38vw;
+    padding: 1vh;
+    box-shadow: 3px 4px 5px 0px black;
+    border-radius: 0.5vh;
+    padding: 1vh 1vw;
+}
+.OAuthstatustxt p{
+    font-size: 2.5vh;
+    margin: 0;
+}

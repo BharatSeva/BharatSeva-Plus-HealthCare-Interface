@@ -1,0 +1,45 @@
+.appointmentSectionOutercontainer{
+    padding: 3vh;
+}
+.BharatSevaHealthCareAppointmentContainer{
+    background-color: rgb(58, 58, 58);
+    padding: 2vh;
+    width: 65vw;
+}
+.BharatSevaHealthCareAppointmentContainer h2{
+    margin: 0;
+    /* padding: 0; */
+}
+.BharatSevaHealthCareAppointmentContainer p{
+    margin: 0;
+}
+.AppointContainer{
+    background-color: rgb(31, 30, 30);
+    width: 60vw;
+    margin: 1vh;
+    padding: 1vh;
+    border-radius: 0.5vh;
+}
+.AppointContainer span{
+    display: inline-block;
+    width: 13vw;
+    /* background-color: red; */
+}
+.AppointContainer p{
+    margin: 1vh;
+    display: flex;
+}
+.CompletedApp{
+    color: lime;
+}
+.UpcomingApp{
+    color: yellow;
+}
+.NotConnected{
+    color: red;
+    text-align: center;
+}
+#UsernnoteAppointment{
+    width: 45vw;
+    font-style: italic;
+}
