@@ -17,8 +17,9 @@ To make contributions:
 - Fork the repository by clicking the **Fork** button at the top.
 - Clone your forked repository to your local machine
 
-### 3. Set Up Development Environment
+### 3. Set Up Development Environment  
 Follow the steps in the README.md to get the project running on your local machine. Ensure the project works before making changes.  
+You'll need Express.js for this repo to test your changes, it is advised to use docker container for same. Please refer to [Bharat Seva express server](https://github.com/BharatSeva/BharatSeva-Plus-Express-Server) repo.
 
 ### 4. Create a New Branch
 Before making changes, create a new branch off the main branch:
@@ -50,8 +51,9 @@ git push origin <feature-branch-name>
 ### 8. Submit a Pull Request (PR)
 Once your changes are ready:
 - Go to the original repository.
-- Click the Compare & Pull Request button.
+- label Issue you're changing (# your-issue-number )
 - Ensure your PR is based on the main branch, and provide a clear description of your changes on your commit or in description if possible.
+- Click the Compare & Pull Request button.
 
 ### 9. Code Review Process
 - The maintainers will review your pull request.
@@ -59,5 +61,5 @@ Once your changes are ready:
 - Ensure your PR passes all tests and linting checks (if any).
 
 ### 10. Merging the PR
-Once your PR is approved, it will be merged into the main repository, and ```hacktoberfest-accepted``` label will be added.
+Once your PR is approved, it will be merged into the main repository, and ```hacktoberfest-accepted``` label will be added.  
 Congratulations on your contribution! 🎉

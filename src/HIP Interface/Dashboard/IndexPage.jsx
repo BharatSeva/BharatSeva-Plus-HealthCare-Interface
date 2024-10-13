@@ -66,6 +66,9 @@ export default function IndexPage() {
                 <NavLink to="/healthcare/login"><div className="gotologinpageIndex" >
                     <p>Proceed to HealthCare Login Page</p>
                 </div></NavLink>
+                {/* <NavLink to="/user/login"><div className="gotologinpageIndex_user" >
+                    <p>Proceed to User Login Page</p>
+                </div></NavLink> */}
             </div>
         </>
     )

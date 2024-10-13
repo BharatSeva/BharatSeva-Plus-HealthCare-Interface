@@ -77,6 +77,15 @@ h1 {
     cursor: pointer;
     font-size: 2.5vh;
 }
+.gotologinpageIndex_user {
+    position: absolute;
+    top: 15vh;
+    left: 2vw;  
+    box-shadow: 0 0 10px black;
+    padding: 0vh 1vw;    
+    cursor: pointer;
+    font-size: 2.5vh;
+}
 
 .gotologinpageIndex p{
     /* padding: 1vh; */

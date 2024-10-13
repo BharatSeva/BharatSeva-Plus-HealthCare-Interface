@@ -2,6 +2,7 @@
   "name": "HealthCareInterFace",
   "version": "0.1.0",
   "private": false,
+  "homepage": "/healthcare",
   "dependencies": {
     "@react-oauth/google": "^0.11.0",
     "@testing-library/jest-dom": "^5.16.5",
