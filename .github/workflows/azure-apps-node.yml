@@ -1,30 +1,44 @@
-name: Deploy to Azure VM
-
+name: Deploy React App to EC2
 on:
   push:
     branches:
       - main
-
+      
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - name: Use Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '20'
-          
+
       - name: Install dependencies
         run: npm ci
-        
-      - name: start the build
-        run: |
-          CI=false # remove this to after fixing warnings
+
+      - name: Build the React app
+        run: | 
+          CI=false # remove this after fixing warnings 
           npm run build
+
+      - name: Create SSH key file
+        run: |
+          mkdir -p /home/runner/.ssh
+          echo "${{ secrets.KEY }}" > /home/runner/.ssh/id_rsa
+          chmod 600 /home/runner/.ssh/id_rsa
+
+      - name: Configure SSH
+        run: |
+          echo "Host ${{ secrets.HOST }}" > /home/runner/.ssh/config
+          echo "  StrictHostKeyChecking no" >> /home/runner/.ssh/config
+
+      - name: Copy build files to EC2
+        run: |
+          scp -i /home/runner/.ssh/id_rsa -r build/* ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/home/azureuser/server/healthcare_static_build/
        
       - name: Deploy to VM
         uses: appleboy/ssh-action@master
@@ -33,10 +47,7 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
-            cd /home/azureuser/server
-            sudo rm -rf healthcare_static_build/*
-            
-            scp -r ${GITHUB_WORKSPACE}/build/* healthcare_static_build/
+            cd /home/azureuser/server/
             
             docker-compose down
             docker-compose build

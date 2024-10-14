@@ -1,6 +1,7 @@
-# Bharat Seva+ (HealthCare Interface)
+# Bharat Seva+ (HealthCare Interface)  [![Deploy to Azure VM](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/azure-apps-node.yml/badge.svg)](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/azure-apps-node.yml)  [![ESLint Check](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/eslint.yaml/badge.svg)](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/eslint.yaml)
 
-Welcome to **Bharat Seva+ HealthCare Interface**, an innovative healthcare management platform designed to simplify patient appointments, health record management, and communication between patients and healthcare professionals. With Bharat Seva+, healthcare providers can easily manage patient data, and patients can store and access their health records anytime, anywhere.
+Welcome to **Bharat Seva+ HealthCare Interface**, an innovative healthcare management platform designed to simplify patient appointments, health record management, and communication between patients and healthcare professionals. With Bharat Seva+, healthcare providers can easily manage patient data, and patients can store and access their health records anytime, anywhere.    
+Refer to [Official Organisation](https://github.com/BharatSeva) to get better idea of this whole project.
 
 ---
 

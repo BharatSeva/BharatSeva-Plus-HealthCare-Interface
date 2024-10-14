@@ -24,7 +24,7 @@ jobs:
       run: npm install
 
     - name: Run ESLint
-      run: npm eslint "src/**/*.{js,jsx}"
+      run: npm run lint
 
 
 
