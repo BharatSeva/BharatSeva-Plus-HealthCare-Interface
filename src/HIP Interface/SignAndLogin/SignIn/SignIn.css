@@ -69,12 +69,12 @@
 }
 .Healthcarebannertxt:after{
     content: '';
-    width: 35vw;
+    width: 50%;
     height: 0.3vh;
     background-color: yellow;
     position: relative;
     display: block;
-    margin: 0 0 0 2.1vw;
+    margin: 0px auto;
 }
 
 
@@ -193,7 +193,7 @@
 
 #LoginBtn{
     margin-top: 50px;
-    width: 90%;
+    width: 80%;
     margin-left: 20px;
     border-radius: 5px;
 }

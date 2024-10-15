@@ -90,9 +90,9 @@ export default function SignIN() {
 
                 <div className="LoginForHealthCare_rightSide DisplayFlexjustifyAlignitem">
 
-                    <div className="HealthCareLoginFormContainer">
+                    <div className="HealthCareLoginFormContainer" style={{width: "80%", margin: "0px auto"}}>
 
-                        <form onSubmit={LoginHealthCare}>
+                        <form onSubmit={LoginHealthCare} style={{margin: "0px auto"}}>
                             <p className="Healthcarebannertxt">Welcome To HealthCare Login Portal</p>
 
                             <label>Health Care Number :</label>
@@ -105,12 +105,12 @@ export default function SignIN() {
                             <input className="inputs" type="password" placeholder="Password" maxLength="30" name="password" required onChange={OnChange} />
 
                             <input type="submit" id="LoginBtn" disabled={IsLoaded.IsLoaded} value={IsLoaded.IsLoaded ? "Validating..." : "Login"}  required style={{ height: "40px"}}  />
-                            <div style={{display: "flex", flexDirection: "row", marginTop: "30px", justifyContent: "center", alignItems: "center", gap: "10px"}}>
-                                <div style={{width:"45%", height: "1px", backgroundColor: "whitesmoke"}}></div>
+                            <div style={{display: "flex", flexDirection: "row", marginTop: "30px", justifyContent: "start", alignItems: "center", gap: "10px"}}>
+                                <div style={{width:"40%", height: "1px", backgroundColor: "whitesmoke"}}></div>
                                 <div style={{fontSize: "1.5rem", fontWeight: "bolder"}}>OR</div>
-                                <div style={{width:"45%", height: "1px", backgroundColor: "whitesmoke"}}></div>
+                                <div style={{width:"40%", height: "1px", backgroundColor: "whitesmoke"}}></div>
                             </div>
-                            <div style={{display: "flex", justifyContent:"center", alignItems: "center", marginLeft: "0px"}}  ><GoogleOAuthProvider style={{display: "flex", justifyContent: "center", alignItems: "center"}}  clientId="476285565826-8smpt7q2bh9o1ace0iqn8lcmn52maele.apps.googleusercontent.com"><GoogleOAuth  /></GoogleOAuthProvider></div>
+                            <div style={{display: "flex", justifyContent:"center", alignItems: "center", marginLeft: "-70px"}}  ><GoogleOAuthProvider  clientId="476285565826-8smpt7q2bh9o1ace0iqn8lcmn52maele.apps.googleusercontent.com"><GoogleOAuth  /></GoogleOAuthProvider></div>
                         </form>
                         <div className="NotRegisteredRedirectbtn">
                             <p>Not Registered ? <Link to="/healthcare/register">Register Here</Link></p>
