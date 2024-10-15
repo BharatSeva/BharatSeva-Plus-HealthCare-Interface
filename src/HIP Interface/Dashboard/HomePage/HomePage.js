@@ -6,7 +6,7 @@ import NotFound from "../NotFound"
 import ErrorElements from "../ErrorElement"
 import IsAuthenticated from "../../IsAuthenticated"
 
-import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route, Navigate } from "react-router-dom"
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from "react-router-dom" //Navigate is removed
 import IndexPage from "../IndexPage"
 export default function HomePage() {
 

@@ -9,7 +9,7 @@ export default function IndexPage() {
             <div className="IndexPageContainer DisplayFlexX">
                 <h2>Welcome to </h2>
                 <div className="IndexNameContainer DisplayFlexX">
-                    <img src={BharatSevaLogo1} />
+                    <img src={BharatSevaLogo1} alt="Bharat Seva" />
                 </div>
 
                 <div className="IndexAboutContainer">
@@ -30,10 +30,10 @@ export default function IndexPage() {
                     <div className="IndexPageAboutApp">
                         <p>This Project Consists of two WebApps : </p>
                         <ul>
-                            <a href="https://bharatsevaplus-healthcare.netlify.app/healthcare/login" target="_blank">
+                            <a href="https://bharatsevaplus-healthcare.netlify.app/healthcare/login" target="_blank" rel="noreferrer" >
                                 <li>HealthCare InterFace <span className="GoToSitePage">Go to Site</span></li>
                             </a>
-                            <a href="https://bharatsevaplus-user.netlify.app/user/login" target="_blank">
+                            <a href="https://bharatsevaplus-user.netlify.app/user/login" target="_blank" rel="noreferrer">
                                 <li>User InterFace <span className="GoToSitePage">Go to Site</span></li>
                             </a>
                         </ul>
@@ -48,11 +48,11 @@ export default function IndexPage() {
                         <p>Some More Details</p>
                         <ul>
                             <li>To Know More About My Project You Can Check this Article : <a href="https://statesinshorts.blogspot.com/2023/07/Bharatsevaplus.html" target="__blank">Click Here <span className="GoToSitePage">Go to Blog</span></a> Or Check Demo :- <a href="https://youtube.com/playlist?list=PLXRQ5AMta2AI_jZlGr0A5owICnGkDpElO" target="__blank">Click Here <span className="GoToSitePage">Open Playlist</span></a> </li>
-                            <li>This is MERN + Firebase Stack project, Developed and Managed by <a href="https://captaintron.github.io/MyPortfolio/" target="_blank">Vaibhav Yadav <span className="GoToSitePage">Portfolio Link</span></a>.</li>
+                            <li>This is MERN + Firebase Stack project, Developed and Managed by <a href="https://captaintron.github.io/MyPortfolio/" target="_blank" rel="noreferrer" >Vaibhav Yadav <span className="GoToSitePage">Portfolio Link</span></a>.</li>
                             <li>This Project took almost 3 months to complete.</li>
                             <li>The Main Purpose behind this project is to test my Web-Development Skills and take it to Next Level like never before !</li>
-                            <li>Both these Websites Hosted On <a href="https://www.netlify.com/" target="_blank">Netlify <span className="GoToSitePage">Open</span></a></li>
-                            <li>REST API Hosted at <a href="https://aws.amazon.com/" target="_blank">AWS <span className="GoToSitePage">Open</span></a></li>
+                            <li>Both these Websites Hosted On <a href="https://www.netlify.com/" target="_blank" rel="noreferrer" >Netlify <span className="GoToSitePage">Open</span></a></li>
+                            <li>REST API Hosted at <a href="https://aws.amazon.com/" target="_blank" rel="noreferrer" >AWS <span className="GoToSitePage">Open</span></a></li>
                             <li>More Features Will Be Added in Future Updates. Some of them are : OAuth (For Guest Login), Video-Text Messages, Mobile View e.t.c .</li>
                             <li>If You have any queries or feedback you can simply <a href="mailto:21vaibhav11@gmail.com"><span className="GoToSitePageMailMe">Mail</span></a> Me.</li>
                             <li><span className="redtxtindex">For Some Reasons, In Netlify, Complete Url can't be loaded directly, you have to route each page one by one.</span></li>

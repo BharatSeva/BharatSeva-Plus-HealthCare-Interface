@@ -1,6 +1,5 @@
-import { Outlet, Link, NavLink } from "react-router-dom"
+import { Outlet, NavLink } from "react-router-dom" //Link is removed
 import "./NavBar.css"
-import LefSideBar from "../LeftSide/LeftSideBar"
 
 export default function NavBar({ toggleSideBar }) {
 

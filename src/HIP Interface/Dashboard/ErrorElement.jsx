@@ -1,8 +1,8 @@
 import "./NotFound.css"
-import { Link, useRouteError } from "react-router-dom"
+import { Link } from "react-router-dom"
 export default function ErrorElements() {
 
-    const error = useRouteError()
+    // const error = useRouteError()
     return (
         <>
             <div className="NotFound">

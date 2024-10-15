@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react" //Remove useEffect
 import { Navigate } from "react-router-dom"
 import "./ViewRecord.css"
 import Select from "react-select"

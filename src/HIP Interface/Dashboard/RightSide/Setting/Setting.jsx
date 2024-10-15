@@ -1,7 +1,7 @@
 import "./Setting.css"
 import { useEffect, useState } from 'react'
 import { Navigate } from "react-router-dom";
-import { FetchData, PostData } from "../../../LoadData";
+import { FetchData } from "../../../LoadData"; //PostData is removed
 
 export default function Setting() {
     const HealthCare = JSON.parse(sessionStorage.getItem("BharatSevahealthCare"))
@@ -11,23 +11,24 @@ export default function Setting() {
     })
     const [showConfirmDialog, setShowConfirmDialog] = useState(false)
 
-    async function OnchangeData(e) {
-        const { name, value } = e.target;
-        SetFetched((p) => ({ ...p, IsFetched: false }))
-        try {
-            let { data, res } = await PostData('/api/v1/healthcaredetails/healthcare/changepreferance', { [name]: value })
-            if (res.ok) {
-                alert("Preference Successfully Changed")
-            }
-        } catch (err) {
-            alert("Could Not Connect To server... :(")
-        }
-        SetFetched((p) => ({ ...p, IsFetched: true }))
-    }
+    // Remove onChangeData(e)
+    // async function OnchangeData(e) {
+    //     const { name, value } = e.target;
+    //     SetFetched((p) => ({ ...p, IsFetched: false }))
+    //     try {
+    //         let { data, res } = await PostData('/api/v1/healthcaredetails/healthcare/changepreferance', { [name]: value })
+    //         if (res.ok) {
+    //             alert("Preference Successfully Changed")
+    //         }
+    //     } catch (err) {
+    //         alert("Could Not Connect To server... :(")
+    //     }
+    //     SetFetched((p) => ({ ...p, IsFetched: true }))
+    // }
 
     useEffect(() => {
         GetData();
-    }, [])
+    }) // Remove the useEffect dependency array from useEffect
 
     async function GetData() {
         try {
@@ -63,7 +64,7 @@ export default function Setting() {
                     'Authorization': `Bearer ${HealthCare.token}`
                 }
             })
-            let Response = await response.json()
+            // let Response = await response.json() Remove the Response variable
             if (response.ok) {
                 alert("Account Scheduled For Deletion!")
                 document.querySelector(".AccountDeleteBtn").classList.add("AccountDeleted")

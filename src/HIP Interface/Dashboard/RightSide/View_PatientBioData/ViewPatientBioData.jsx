@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react" // Remove useEffect
 import "./ViewPatientBioData.css"
 import { FetchData } from "../../../LoadData"
 import { Navigate } from "react-router-dom"
@@ -37,7 +37,8 @@ export default function ViewPatientBioData() {
     }
 
     function FetchDataPBD() {
-        if (document.getElementById("HID_inputBIOData").value.toString().length == 10) {
+        // Use === instead of ==
+        if (document.getElementById("HID_inputBIOData").value.toString().length === 10) {
             GetPatientBioData(document.getElementById("HID_inputBIOData").value)
             return;
         }
