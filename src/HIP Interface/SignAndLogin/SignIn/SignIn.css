@@ -143,10 +143,6 @@
 
 
 
-
-
-
-
 /* Login Form Right Side Start From Here */
 
 .LoginRightSideImage {
@@ -189,4 +185,15 @@
     font-weight: bolder;
     text-decoration: underline;
     text-underline-offset: 1vh;
+}
+
+.inputs{
+    background-color: rgb(207, 207, 207);
+}
+
+#LoginBtn{
+    margin-top: 50px;
+    width: 90%;
+    margin-left: 20px;
+    border-radius: 5px;
 }
