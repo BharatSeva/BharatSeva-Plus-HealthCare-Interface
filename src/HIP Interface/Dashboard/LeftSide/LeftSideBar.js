@@ -1,6 +1,6 @@
 import "./LeftSideBar.css"
 import React from "react"
-import { Link, NavLink } from "react-router-dom"
+import { NavLink } from "react-router-dom" //Link is removed
 export default function LefSideBar() {
 
 

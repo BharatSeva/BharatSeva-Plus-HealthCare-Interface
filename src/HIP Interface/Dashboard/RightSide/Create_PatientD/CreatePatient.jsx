@@ -53,7 +53,7 @@ export default function CreatePatientD() {
     function PostFetchDataForPBD(e) {
         e.preventDefault();
         const HealthCareId = document.getElementById("healthId")
-        if (HealthCareId.value.length != 10) {
+        if (HealthCareId.value.length !== 10) { // Replaced '1=' with '!=='
             alert("HealthID Must Be 10 Characters Long!")
             return
         }
@@ -65,7 +65,7 @@ export default function CreatePatientD() {
         SetIsLoaded((p) => ({ ...p, IsLoaded: true }))
 
         try {
-            const { data, res, err } = await PostData(`/api/v1/healthcaredetails/createuserBio`, CPFormData)
+            const { data, res } = await PostData(`/api/v1/healthcaredetails/createuserBio`, CPFormData) // removed err variable when it was never used
             if (res.status === 405) { SetIsLoaded((p) => ({ ...p, IsRedirected: true })) }
 
             SetSituationContainer(data.message)

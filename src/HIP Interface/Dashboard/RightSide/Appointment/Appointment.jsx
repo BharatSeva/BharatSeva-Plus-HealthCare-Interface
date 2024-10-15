@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Navigate, redirect } from "react-router-dom";
+import { Navigate } from "react-router-dom"; //redirect is removed
 import "./Appointment.css"
 import { FetchData } from "../../../LoadData";
 
@@ -15,7 +15,6 @@ export default function Appointment() {
     })
 
     async function fetchdata() {
-        const HealthCare = JSON.parse(sessionStorage.getItem("BharatSevahealthCare"))
         SetIsFetched((p) => ({ ...p, IsFetched: false }))
         try {
             let { data, res } = await FetchData(`/api/v1/healthcaredetails/healthcare/appointment`)

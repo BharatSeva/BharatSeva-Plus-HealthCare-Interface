@@ -26,7 +26,7 @@ export default function Register() {
 
     async function RegisterAPIGOESHere(e) {
         e.preventDefault();
-        if (document.querySelector("#Registration_Password").value != document.querySelector("#Registration_CheckPassword").value) {
+        if (document.querySelector("#Registration_Password").value !== document.querySelector("#Registration_CheckPassword").value) {
             PasswordStatus.textContent = "Password Do Not Match :("
             PasswordStatus.classList.remove("DiplayNone")
             PasswordStatus.style.color = "red";
@@ -48,7 +48,8 @@ export default function Register() {
             if (response.ok) {
                 SetStatus("Registration Successfull! Please Login :)")
                 SetIsFetched((p) => ({ ...p, IsRedirect: true }))
-            } else if (response.status == 400) {
+                // Use === instead of ==
+            } else if (response.status === 400) {
                 SetStatus("Seems Like Anyone else already Registered With Given Email Or HealthCareID :(")
             } else {
                 SetStatus(data.message)

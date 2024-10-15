@@ -6,12 +6,11 @@ import "./RightSide.css"
 import Setting from "./Setting/Setting"
 import ViewRecord from "./ViewRecord/ViewRecord"
 import ViewPatientBioData from "./View_PatientBioData/ViewPatientBioData"
-import { Routes, Route, useLocation } from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 import IsNavBarAuthenticated from "../../IsNavBarAuthenticated"
 
 
 export default function RightSide() {
-    const location = useLocation()
 
     return (
         <>

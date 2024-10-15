@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react" // removed useEffect
 import "./Cr_PatientRecord.css"
 import Select from 'react-select'
 import { PostData } from "../../../LoadData"
