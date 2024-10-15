@@ -90,23 +90,27 @@ export default function SignIN() {
 
                 <div className="LoginForHealthCare_rightSide DisplayFlexjustifyAlignitem">
 
-                    <div className="HealthCareLoginFormContainer">
+                    <div className="HealthCareLoginFormContainer" style={{width: "80%", margin: "0px auto"}}>
 
-                        <form onSubmit={LoginHealthCare}>
+                        <form onSubmit={LoginHealthCare} style={{margin: "0px auto"}}>
                             <p className="Healthcarebannertxt">Welcome To HealthCare Login Portal</p>
 
                             <label>Health Care Number :</label>
-                            <input type="number" placeholder="Health Care Number" name="healthcareId" onChange={OnChange} required />
+                            <input type="number" placeholder="Health Care Number" name="healthcareId" className="inputs" onChange={OnChange} required />
                             <br></br>
                             <label>License Number :</label>
-                            <input type="number" placeholder="License Number" name="healthcarelicense" required onChange={OnChange} />
+                            <input className="inputs" type="number" placeholder="License Number" name="healthcarelicense" required onChange={OnChange} />
                             <br></br>
                             <label>Password :</label>
-                            <input type="password" placeholder="Password" maxLength="30" name="password" required onChange={OnChange} />
+                            <input className="inputs" type="password" placeholder="Password" maxLength="30" name="password" required onChange={OnChange} />
 
-                            <input type="submit" id="LoginBtn" disabled={IsLoaded.IsLoaded} value={IsLoaded.IsLoaded ? "Validating..." : "Login"} maxLength="30" required />
-                            <h5 style={{ textAlign: 'center', margin: 0}}>Or</h5>
-                            <div className="GoogleAuthContainer"><GoogleOAuthProvider clientId="476285565826-8smpt7q2bh9o1ace0iqn8lcmn52maele.apps.googleusercontent.com"><GoogleOAuth /></GoogleOAuthProvider></div>
+                            <input type="submit" id="LoginBtn" disabled={IsLoaded.IsLoaded} value={IsLoaded.IsLoaded ? "Validating..." : "Login"}  required style={{ height: "40px"}}  />
+                            <div style={{display: "flex", flexDirection: "row", marginTop: "30px", justifyContent: "start", alignItems: "center", gap: "10px"}}>
+                                <div style={{width:"40%", height: "1px", backgroundColor: "whitesmoke"}}></div>
+                                <div style={{fontSize: "1.5rem", fontWeight: "bolder"}}>OR</div>
+                                <div style={{width:"40%", height: "1px", backgroundColor: "whitesmoke"}}></div>
+                            </div>
+                            <div style={{display: "flex", justifyContent:"center", alignItems: "center", marginLeft: "-70px"}}  ><GoogleOAuthProvider  clientId="476285565826-8smpt7q2bh9o1ace0iqn8lcmn52maele.apps.googleusercontent.com"><GoogleOAuth  /></GoogleOAuthProvider></div>
                         </form>
                         <div className="NotRegisteredRedirectbtn">
                             <p>Not Registered ? <Link to="/healthcare/register">Register Here</Link></p>
