@@ -111,9 +111,17 @@ export default function Register() {
 								/>
 								<br></br>
 								<label>
-									Health Care ID :{" "}
-									<span className="HelptextinRegister">
-										(HealthCare ID Should Be Unique)
+									<span
+										style={{
+											display: "flex",
+											flexDirection: "column",
+											justifyContent: "flex-start",
+											alignItems: "flex-start",
+										}}>
+										<p>Health Care ID : </p>
+										<p className="HelptextinRegister" style={{fontSize: "6px", marginTop: "-10px"}}>
+											(HealthCare ID Should Be Unique)
+										</p>
 									</span>
 								</label>
 								<input
@@ -310,7 +318,12 @@ export default function Register() {
 										height: "1px",
 										backgroundColor: "whitesmoke",
 									}}></div>
-								<div style={{ fontSize: "1.5rem", fontWeight: "bolder" , color: "white"}}>
+								<div
+									style={{
+										fontSize: "1.5rem",
+										fontWeight: "bolder",
+										color: "white",
+									}}>
 									OR
 								</div>
 								<div

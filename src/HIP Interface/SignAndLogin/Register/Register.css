@@ -190,7 +190,7 @@ input:focus {
     color: white;
     text-align: center;
     display: inline-block;
-    font-size: 2vh;
+    /* font-size: 2vh; */
 }
 
 .TermsandConditions {
