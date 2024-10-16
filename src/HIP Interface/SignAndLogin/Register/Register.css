@@ -25,7 +25,7 @@
     text-underline-offset: 0.5vh;
 }
 
-.RegisterBox {
+/* .RegisterBox {
     background-color: rgb(39, 36, 36);
     box-shadow: 8px 7px 20px 5px rgb(0 0 0);
     padding: 4vh;
@@ -33,9 +33,9 @@
     border-radius: 1vh;
     width: 50vw;
 
-}
+} */
 
-.WelcomeGreetings {
+/* .WelcomeGreetings {
     font-size: 4vh;
     text-align: center;
     color: white;
@@ -49,9 +49,9 @@
     background-color: yellow;
     position: relative;
     display: block;
-}
+} */
 
-.RegisterBox form {
+/* .RegisterBox form {
     font-size: 2.3vh;
 }
 
@@ -70,13 +70,13 @@
     margin: 1.5vh;
     border: none;
     font-size: 2.5vh;
-}
+} */
 
 input:focus {
     outline: none;
 }
 
-.Registerbtn {
+/* .Registerbtn {
     margin: 3vh;
     flex-direction: column;
 }
@@ -91,9 +91,9 @@ input:focus {
     background-color: yellow;
     cursor: pointer;
     transition: 0.3s linear;
-}
+} */
 
-.Registerbtn button:hover {
+/* .Registerbtn button:hover {
     color: white;
     background-color: rgb(61, 61, 61);
 }
@@ -101,7 +101,7 @@ input:focus {
 .Registerbtn button:active {
     background-color: green;
     color: black;
-}
+} */
 
 /* Login Button Redirect here */
 .LoginbtnRedirect {
@@ -172,11 +172,11 @@ input:focus {
     margin: 0;
 }
 
-.registerHealthCaretextareaContainer {
+/* .registerHealthCaretextareaContainer {
     display: flex;
     margin: 0;
     padding: 0;
-}
+} */
 
 .registerHealthCaretextarea {
     outline: none;
@@ -190,7 +190,7 @@ input:focus {
     color: white;
     text-align: center;
     display: inline-block;
-    font-size: 2vh;
+    /* font-size: 2vh; */
 }
 
 .TermsandConditions {
@@ -261,4 +261,142 @@ input:focus {
 .RegisterPagetxt li>a {
     color: lime;
     text-underline-offset: 0.6vh;
+}
+
+
+/* General Styling for Registration Form */
+.RegisterBox {
+    background-color: #272424;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+    padding: 4vh 6vh;
+    margin: 4vh auto;
+    border-radius: 1vh;
+    width: 50vw;
+    max-width: 600px;
+}
+
+/* Form Styling */
+.RegisterBox form {
+    font-size: 2.2vh;
+    color: #ddd;
+}
+
+/* Welcome Greetings Styling */
+.WelcomeGreetings {
+    font-size: 4vh;
+    text-align: center;
+    color: #f8f8f8;
+    font-weight: bold;
+    margin-bottom: 3vh;
+    position: relative;
+}
+
+.WelcomeGreetings:after {
+    content: '';
+    display: block;
+    width: 85%;
+    /* max-width: 400px; */
+    height: 0.4vh;
+    background-color: #ffcd3c;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -1vh;
+}
+
+/* Label Styling */
+.RegisterBox form label {
+    display: inline-block;
+    width: 14vw;
+    text-align: left;
+    margin-bottom: 1vh;
+    font-size: 2vh;
+    color: #f0f0f0;
+}
+
+/* Input Fields Styling */
+.RegisterBox form input,
+.registerHealthCaretextareaContainer textarea {
+    border: none;
+    border-radius: 0.6vh;
+    width: calc(100% - 16vw);
+    max-width: 400px;
+    height: 4.5vh;
+    margin: 1vh 0;
+    padding-left: 1vh;
+    background-color: #e0e0e0;
+    font-size: 2vh;
+    outline: none;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Textarea Styling */
+.registerHealthCaretextareaContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5vh;
+}
+
+.registerHealthCaretextareaContainer textarea {
+    resize: none;
+    height: 12vh;
+    padding: 1vh;
+}
+
+/* Submit Button Styling */
+.Registerbtn button {
+    width: calc(100% - 4vh);
+    /* max-width: 400px; */
+    background-color: #ffcd3c;
+    color: #333;
+    font-size: 2.3vh;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.6vh;
+    padding: 1.5vh 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    margin-top: 3vh;
+}
+
+.Registerbtn button:hover {
+    background-color: #ffa500;
+}
+
+.Registerbtn p {
+    font-size: 1.5vh;
+    margin-top: 1vh;
+    text-align: center;
+    color: #ccc;
+}
+
+/* Redirect to Login Button Styling */
+.LoginbtnRedirect {
+    text-align: center;
+    font-size: 2vh;
+    margin-top: 3vh;
+}
+
+.LoginbtnRedirect a {
+    color: #ffcd3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.LoginbtnRedirect a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsive Styling */
+@media screen and (max-width: 768px) {
+    .RegisterBox {
+        width: 90%;
+    }
+
+    .RegisterBox form label,
+    .RegisterBox form input,
+    .registerHealthCaretextareaContainer textarea,
+    .Registerbtn button {
+        width: 100%;
+    }
 }
