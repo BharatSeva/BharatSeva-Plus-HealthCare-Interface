@@ -1,4 +1,3 @@
-
 .DisplayFlexX {
     display: flex;
     justify-content: center;
@@ -6,14 +5,36 @@
     flex-direction: column;
 }
 
+.IndexPageContainer,
+.IndexAboutContainer,
+.IndexPageAboutApp {
+    padding: 2vh 4vw;
+}
+
+.IndexAboutContainer,
+.projectdetails,
+.IndexPageAboutApp {
+    text-align: left;
+}
+
+/* Bold and underline headings */
+.IndexAboutContainer h2,
+.projectdetails h3 {
+    font-weight: bold;
+    /* margin-bottom: 2vh; */
+    margin-top: 5vh;
+}
+
 .IndexPageContainer h2 {
     text-decoration: underline;
     text-underline-offset: 1vh;
     color: white;
 }
-.IndexPageContainer > a{
+
+.IndexPageContainer>a {
     color: wheat;
 }
+
 .IndexNameContainer {
     margin: 0;
     padding: 2vh;
@@ -33,8 +54,11 @@ h1 {
     margin: 1vh 0 4vh 0;
     height: 0.4vh;
 }
-.IndexNameContainer img{
+
+.IndexNameContainer img {
     width: 20vw;
+    display: block;
+    margin: 0 auto;
 }
 
 .width80vw {
@@ -44,6 +68,12 @@ h1 {
 .IndexAboutContainer {
     width: 80vw;
     color: white;
+}
+
+.IndexAboutContainer p {
+    margin-bottom: 2vh;
+    line-height: 1.7;
+    line-height: 1.8;
 }
 
 .SpecialTaglineIndex {
@@ -56,10 +86,21 @@ h1 {
     width: 80vw;
     color: white;
 }
-.IndexPageAboutApp ul > a{
+
+.IndexPageAboutApp p {
+    margin-top: 0;
+}
+
+.IndexPageAboutApp ul li {
+    margin-bottom: 1vh;
+    line-height: 1.2;
+}
+
+.IndexPageAboutApp ul>a {
     color: white;
     text-underline-offset: 0.6vh;
-} 
+}
+
 .infomessage {
     text-align: right;
     width: 97vw;
@@ -67,47 +108,70 @@ h1 {
     color: wheat;
 }
 
-/* Go To Login Page Goes Here */
+/* Center the Go To Login Page button below the logo */
 .gotologinpageIndex {
-    position: absolute;
-    top: 2vh;
-    left: 2vw;  
-    box-shadow: 0 0 10px black;
-    padding: 0vh 1vw;    
+    padding: 1vh 2vw;
+    margin: 2vh auto;
+    /* Center the button */
     cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border-radius: 5px;
     font-size: 2.5vh;
+    text-align: center;
+    box-shadow: 0 0 10px black;
 }
+
+.gotologinpageIndex:hover {
+    background-color: #444;
+}
+
+.centeredButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* User Login Button (If needed) */
 .gotologinpageIndex_user {
     position: absolute;
     top: 15vh;
-    left: 2vw;  
+    left: 2vw;
     box-shadow: 0 0 10px black;
-    padding: 0vh 1vw;    
+    padding: 0vh 1vw;
     cursor: pointer;
     font-size: 2.5vh;
 }
 
-.gotologinpageIndex p{
-    /* padding: 1vh; */
+.gotologinpageIndex p {
     border-radius: 0.6vh;
 }
-.GoToSitePage{
+
+.GoToSitePage {
     font-size: 1.7vh;
     color: lime;
 }
-.GoToSitePageMailMe{
+
+.GoToSitePageMailMe {
     font-size: 2.5vh;
     color: lime;
 }
-.projectdetails{
+
+.projectdetails {
     color: white;
 }
-.projectdetails ul li> a {
+
+.projectdetails ul li>a {
     text-underline-offset: 0.6vh;
     color: white;
 }
 
-/* ThankyouUrlFriend */
-.redtxtindex{
+.projectdetails ul li {
+    margin-bottom: 1vh;
+    font-size: 1.8vh;
+}
+
+/* Thank You Section */
+.redtxtindex {
     color: rgb(255, 123, 0);
 }
