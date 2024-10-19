@@ -80,7 +80,7 @@ export default function CreatePatientD() {
 
     const twin = [{ "label": "Yes", "value": "Yes", "name": "twin" }, { "label": "No", "value": "No", "name": "twin" }]
     const sibling = [{ "label": "Yes", "value": "Yes", "name": "sibling" }, { "label": "No", "value": "No", "name": "sibling" }]
-    const sex = [{ "label": "☕", "value": "☕", "name": "sex" }, { "label": "😎", "value": "😎", "name": "sex" }, { "label": "🙄", "value": "🙄", "name": "sex" }]
+    const sex = [{ "label": "Male", "value": "Male", "name": "sex" }, { "label": "Female", "value": "Female", "name": "sex" }, { "label": "Prefer not to say", "value": "Prefer Not to Say", "name": "sex" }]
     const Marriage = [{ "label": "Single", "value": "Single", "name": "MarriageStatus" }, { "label": "Dharti Ka Bhoj", "value": "Dharti Ka Bhoj", "name": "MarriageStatus" }]
     
     return (
@@ -142,10 +142,10 @@ export default function CreatePatientD() {
                             <Select className="Twin PDC" options={twin} name="Twin" onChange={OnChangeSelectPDC}></Select>
 
                             <label>Father Name</label><br></br>
-                            <input type="text" className="PDContainer" name="fathername" placeholder="पिता श्री" required onChange={OnChangeCPRData} /><br></br>
+                            <input type="text" className="PDContainer" name="fathername" placeholder="Father Name" required onChange={OnChangeCPRData} /><br></br>
 
                             <label>Mother Name</label><br></br>
-                            <input type="text" className="PDContainer" name="mothername" placeholder="माता श्री" required onChange={OnChangeCPRData} /><br></br>
+                            <input type="text" className="PDContainer" name="mothername" placeholder="Mother Name" required onChange={OnChangeCPRData} /><br></br>
 
                             <label>Emergency Contact Number</label><br></br>
                             <input type="text" className="PDContainer" name="emergencynumber" placeholder="Emergency Number" required onChange={OnChangeCPRData} /><br></br>

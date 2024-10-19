@@ -93,12 +93,15 @@ export default function ViewRecord() {
                     <input id="HID_input" type="number" name="HID" placeholder="Enter Health ID" onKeyUp={CallVR} />
                     <div className="SearchIcon" onClick={GetData}><i className="fa-solid fa-magnifying-glass"></i></div>
 
-                    <Select id="FilterPatientRecords" options={FilterOption} onChange={FilterMedicalS} />
-                    <div 
+                    <div className="flex items-center mt-4"> {/* Flex container for layout */}
+                        <span className="mr-2 text-white">Medical Severity:</span> {/* Text on the left side */}
+                        <Select id="FilterPatientRecords" options={FilterOption} onChange={FilterMedicalS} />
+                        <div 
                         className={fetched.filtered ? "bgblue SearchIcon" : "SearchIcon"} 
                         onClick={() => setFetched(prev => ({ ...prev, filtered: false }))}
-                    >
-                        Clear Filter
+                        >
+                            Clear Filter
+                        </div>
                     </div>
                 </div>
 

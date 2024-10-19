@@ -1,8 +1,8 @@
 .LeftSide_textContainer ul .IsActive {
-    color: rgb(250 120 120);
+    color: rgb(120, 250, 124);
     text-decoration: none;
     font-weight: bold;
-    text-shadow: 0 0 10px rgb(243, 48, 48), 0 0 10px rgb(255 0 0);
+    text-shadow: 0 0 10px rgba(0, 171, 46, 0.978), 0 0 10px rgb(2, 107, 12);
     letter-spacing: 0.1vh;
     display: inline-block;
     background-color: rgb(71, 71, 71);

@@ -49,10 +49,6 @@
 }
 
 
-
-
-
-
 .ViewPR_inputHID::after {
     margin: 1vh 0 1vh 0;
     display: block;
@@ -62,11 +58,6 @@
     width: 70vw;
     height: 0.3vh;
 }
-
-
-
-
-
 
 .redLabel {
     color: red;
@@ -138,4 +129,23 @@
     font-weight: bolder;
     color: rgb(0, 0, 0);
     box-shadow: 0 0 30px lime;
+}
+
+.flex {
+    display: flex; /* Create a flex container */
+    align-items: center; /* Center items vertically */
+    margin-top: 1rem; /* Add top margin to create space above the flex container */
+}
+
+.flex span {
+    margin-right: 0.5rem; /* Space between label and dropdown */
+    color: white; /* Text color */
+}
+
+.bgblue:hover {
+    background-color: darkblue; /* Darker color on hover */
+}
+
+.SearchIcon:hover {
+    opacity: 0.8; /* Slightly change opacity on hover */
 }
