@@ -12,6 +12,7 @@ If you’ve found a bug or want to request a feature:
 - **Search existing issues**: Check to see if the issue or feature request already exists.
 - **Open a new issue**: If it doesn’t exist, create a new issue using a descriptive title.
 - **Provide details**: Include steps to reproduce the bug or describe the feature request in detail.
+- **Mandatory**: Before making any PR you must be assigned to respective issue, else your PR will be rejected or will be taken under review for atleast 6-8 days.
 
 ### 2. Fork the Repository
 To make contributions:
