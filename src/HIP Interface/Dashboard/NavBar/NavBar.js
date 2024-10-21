@@ -13,7 +13,7 @@ export default function NavBar({ toggleSideBar }) {
         document.querySelector(".HealthCare_AccountPopOver").classList.toggle("DisplayNone")
     }
 
-    // This Will Get the Hopital Name
+    // This Will Get the Hospital Name
     const HealthCare = JSON.parse(sessionStorage.getItem("BharatSevahealthCare"))
     return (
         <>
