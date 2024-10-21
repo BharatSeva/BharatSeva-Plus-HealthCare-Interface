@@ -6,17 +6,23 @@
 }
 
 .HomePageNavBarContainer {
-    width: 99.9vw;
+    width: 100%;
     background-color: rgb(32, 31, 31);
-    height: 6vh;
+    height: 8.5vh;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     box-shadow: inset 0px 4px 9px 0px black;
+    padding: 0 1rem;
+    box-sizing: border-box;
 }
 
 .LeftSideNavBar {
-    width: 12vw;
+    display: flex;
+    align-items: center;
+    width: auto;
     justify-content: space-between;
-    padding: 2vh;
+    padding: 0.5rem 1rem;
     box-sizing: border-box;
     border-radius: 1vh;
 }
@@ -24,9 +30,12 @@
 .fa-bars {
     border-radius: 1vh;
     transition: 0.5s linear;
+    padding: 0.5rem;
 }
-.CompanyName{
+
+.CompanyName {
     font-size: 2.3vh;
+    margin-left: 1rem;
 }
 
 .fa-bars:hover {
@@ -34,16 +43,22 @@
     cursor: pointer;
 }
 
+.LeftSideNavBar_AccountAndNotification {
+    display: flex;
+    align-items: center;
+}
+
 .LeftSideNavBar_AccountAndNotification P:nth-child(n) {
     text-align: center;
-    width: 6.9vw;
-    margin-right: 1vw;
-    padding: 1vh;
-    height: 3vh;
+    width: auto;
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    height: auto;
     border-radius: 1vh;
     justify-content: space-between;
     font-size: 2vh;
     border: 2px solid #434343;
+    white-space: nowrap;
 }
 
 .LeftSideNavBar_AccountAndNotification P:nth-child(n):hover {
@@ -161,4 +176,35 @@
 }
 .HealthcareNameUser{
     font-size: 2vh;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .HomePageNavBarContainer {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem;
+    }
+
+    .LeftSideNavBar {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .LeftSideNavBar_AccountAndNotification {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .LeftSideNavBar_AccountAndNotification P:nth-child(n) {
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+    }
+
+    .HealthCare_NotificationPopOver,
+    .HealthCare_AccountPopOver {
+        width: 90%;
+        right: 5%;
+    }
 }
