@@ -22,6 +22,7 @@ jobs:
 
       - name: Build the React app
         run: | 
+          CI=false
           npm run build
 
       - name: Create SSH key file
