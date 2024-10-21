@@ -1,99 +1,98 @@
 .HomePageContainer {
     height: 100vh;
     width: 100vw;
-    font-size: 2.3vh;
+    font-size: 16px;
     color: white;
 }
 
 .HomePageNavBarContainer {
-    width: 99.9vw;
+    width: 100%;
     background-color: rgb(32, 31, 31);
-    height: 6vh;
-    justify-content: space-between;
     box-shadow: inset 0px 4px 9px 0px black;
 }
 
-.LeftSideNavBar {
-    width: 12vw;
+.NavBarContent {
+    display: flex;
     justify-content: space-between;
-    padding: 2vh;
-    box-sizing: border-box;
-    border-radius: 1vh;
+    align-items: center;
+    padding: 0.3rem 0;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.LeftSideNavBar, .LeftSideNavBar_NameTag, .LeftSideNavBar_AccountAndNotification {
+    display: flex;
+    align-items: center;
+}
+
+.LeftSideNavBar {
+    gap: 1rem;
+    padding-left: 1rem;
 }
 
 .fa-bars {
-    border-radius: 1vh;
-    transition: 0.5s linear;
-}
-.CompanyName{
-    font-size: 2.3vh;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .fa-bars:hover {
-    background-color: black;
-    cursor: pointer;
+    color: #ddd;
 }
 
-.LeftSideNavBar_AccountAndNotification P:nth-child(n) {
-    text-align: center;
-    width: 6.9vw;
-    margin-right: 1vw;
-    padding: 1vh;
-    height: 3vh;
-    border-radius: 1vh;
-    justify-content: space-between;
-    font-size: 2vh;
+.CompanyName {
+    font-size: 1.2rem;
+    white-space: nowrap;
+}
+
+.HealthcareNameUser {
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.LeftSideNavBar_AccountAndNotification {
+    gap: 1rem;
+    padding-right: 1rem;
+}
+
+.NavButton {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
     border: 2px solid #434343;
-}
-
-.LeftSideNavBar_AccountAndNotification P:nth-child(n):hover {
-    background-color: rgb(71, 71, 71);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
     cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.9rem;
 }
 
-.HealthCare_NotificationPopOver {
+.NavButton:hover {
+    background-color: rgb(71, 71, 71);
+}
+
+.HealthCare_NotificationPopOver,
+.HealthCare_AccountPopOver {
     position: absolute;
-    top: 7vh;
-    right: 10vw;
+    top: 100%;
+    right: 0;
     background-color: #272525;
-    border-radius: 1vh;
-    padding: 1vh 1vw;
-    width: 27vw;
+    border-radius: 0.5rem;
+    padding: 1rem;
     box-shadow: 0px 1px 9px 3px black;
     z-index: 100;
 }
 
-.HealthCare_NotificationPopOver ul {
-    padding: 0vh;
-    list-style-type: none;
-    text-align: left;
-    font-size: 1.9vh;
+.HealthCare_NotificationPopOver {
+    width: 300px;
+    max-width: 90vw;
 }
 
-.HealthCare_NotificationPopOver ul li::before {
-    content: '';
-    position: relative;
-    display: inline-block;
-    background-color: yellow;
-    height: 1vh;
-    width: 0.5vw;
-    margin: 0 2vh 0 1vh;
-    border-radius: 50vh;
-}
-
-.HealthCare_NotificationPopOver ul li:nth-child(1)::before {
-    animation: blink 1.5s ease-out infinite;
-}
-
-@keyframes blink {
-    from {
-        box-shadow: 0 0 1px 1px yellow;
-    }
-
-    to {
-        box-shadow: 0 0 1px 7px yellow;
-        opacity: 0;
-    }
+.HealthCare_AccountPopOver {
+    width: 250px;
+    max-width: 90vw;
 }
 
 /* Account PopOver Goes Here */
@@ -159,6 +158,41 @@
     font-weight: bolder;
     color: red;
 }
-.HealthcareNameUser{
-    font-size: 2vh;
+
+@media (max-width: 768px) {
+    .NavBarContent {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.3rem 0;
+    }
+
+    .LeftSideNavBar_NameTag {
+        display: none;
+    }
+
+    .LeftSideNavBar_AccountAndNotification {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .NavButton {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .CompanyName {
+        display: none;
+    }
+
+    .LeftSideNavBar_AccountAndNotification {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .NavButton {
+        width: 100%;
+    }
 }
