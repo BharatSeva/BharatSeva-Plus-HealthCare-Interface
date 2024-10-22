@@ -23,12 +23,15 @@ Refer to [Official Organisation](https://github.com/BharatSeva) to get better id
 
 ## Table of Contents
 
-- [About this Project](#about-this-project)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
+- [Bharat Seva+ (HealthCare Interface)    ](#bharat-seva-healthcare-interface----)
+	- [Table of Contents](#table-of-contents)
+	- [About this Project](#about-this-project)
+	- [Features](#features)
+	- [Tech Stack](#tech-stack)
+	- [Installation](#installation)
+		- [Steps](#steps)
+	- [Contributing](#contributing)
+	- [License](#license)
 
 ---
 
