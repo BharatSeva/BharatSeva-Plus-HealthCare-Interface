@@ -12,8 +12,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: inset 0px 4px 9px 0px black;
-    padding: 0 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 0 2rem;
     box-sizing: border-box;
 }
 
@@ -21,49 +21,57 @@
     display: flex;
     align-items: center;
     width: auto;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
+    justify-content: flex-start;
+    padding: 0.5rem 0;
     box-sizing: border-box;
     border-radius: 1vh;
 }
 
 .fa-bars {
-    border-radius: 1vh;
-    transition: 0.5s linear;
+    border-radius: 0.5rem;
+    transition: 0.3s ease;
     padding: 0.5rem;
+    font-size: 1.2rem;
 }
 
 .CompanyName {
-    font-size: 2.3vh;
-    margin-left: 1rem;
+    font-size: 2.5vh;
+    margin-left: 1.5rem;
+    font-weight: 600;
 }
 
 .fa-bars:hover {
-    background-color: black;
+    background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
 }
 
 .LeftSideNavBar_AccountAndNotification {
     display: flex;
     align-items: center;
+    gap: 1rem;
 }
 
 .LeftSideNavBar_AccountAndNotification P:nth-child(n) {
     text-align: center;
     width: auto;
-    margin-right: 1rem;
+    margin-right: 0;
     padding: 0.5rem 1rem;
     height: auto;
-    border-radius: 1vh;
-    justify-content: space-between;
-    font-size: 2vh;
-    border: 2px solid #434343;
+    border-radius: 0.5rem;
+    justify-content: center;
+    font-size: 1.8vh;
+    border: 1px solid #434343;
     white-space: nowrap;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .LeftSideNavBar_AccountAndNotification P:nth-child(n):hover {
-    background-color: rgb(71, 71, 71);
+    background-color: rgba(255, 255, 255, 0.1);
     cursor: pointer;
+    border-color: #666;
 }
 
 .HealthCare_NotificationPopOver {
@@ -71,15 +79,15 @@
     top: 7vh;
     right: 10vw;
     background-color: #272525;
-    border-radius: 1vh;
+    border-radius: 0.5rem;
     padding: 1vh 1vw;
     width: 27vw;
-    box-shadow: 0px 1px 9px 3px black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     z-index: 100;
 }
 
 .HealthCare_NotificationPopOver ul {
-    padding: 0vh;
+    padding: 0.5rem 0;
     list-style-type: none;
     text-align: left;
     font-size: 1.9vh;
@@ -116,7 +124,7 @@
     position: absolute;
     top: 7vh;
     right: 1vw;
-    border-radius: 1vh;
+    border-radius: 0.5rem;
     height: 40vh;
     width: 18vw;
     background-color: rgb(34, 34, 34);
@@ -128,20 +136,17 @@
     list-style-type: none;
     padding: 0;
     margin: 2vh 3vh 0 1vh;
-
 }
 
 .HealthCare_AccountPopOver ul li:nth-child(n) {
     padding: 0.4vh 1vw;
     border-radius: 1vh;
-
 }
 
 .HealthCare_AccountPopOver ul li:nth-child(n+3):hover {
     background-color: rgb(66, 66, 66);
     cursor: pointer;
 }
-
 
 .HealthCare_AccountPopOver ul li:nth-child(1),
 .HealthCare_AccountPopOver ul li:nth-child(2) {
@@ -207,4 +212,72 @@
         width: 90%;
         right: 5%;
     }
+
+    .HomePageNavBarContainer {
+        padding: 0 1rem;
+    }
+
+    .LeftSideNavBar {
+        justify-content: center;
+    }
+
+    .CompanyName {
+        font-size: 2.2vh;
+        margin-left: 1rem;
+    }
+
+    .LeftSideNavBar_AccountAndNotification {
+        gap: 0.5rem;
+    }
+
+    .LeftSideNavBar_AccountAndNotification P:nth-child(n) {
+        padding: 0.4rem 0.8rem;
+        font-size: 1.6vh;
+    }
+}
+
+/* Add styles for LeftSideNavBar_NameTag */
+.LeftSideNavBar_NameTag {
+    display: flex;
+    align-items: center;
+}
+
+.HealthcareNameUser {
+    font-size: 1.8vh;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Enhance notification and account popovers */
+.HealthCare_NotificationPopOver,
+.HealthCare_AccountPopOver {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 1px solid #434343;
+}
+
+.HealthCare_NotificationPopOver ul,
+.HealthCare_AccountPopOver ul {
+    padding: 0.5rem 0;
+}
+
+.HealthCare_NotificationPopOver ul li,
+.HealthCare_AccountPopOver ul li {
+    padding: 0.5rem 1rem;
+    transition: 0.3s ease;
+}
+
+.HealthCare_AccountPopOver ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Add this new style for icons inside buttons */
+.LeftSideNavBar_AccountAndNotification P:nth-child(n) i {
+    font-size: 1.2em;
 }
