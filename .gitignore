@@ -1,5 +1,5 @@
 /node_modules
 /build
 .env
-azuremmmut.pem
+*.pem
 deploy.sh
