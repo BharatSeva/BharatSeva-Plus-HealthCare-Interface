@@ -32,10 +32,10 @@ export default function LefSideBar() {
                     </ul>
                     <div className="TextContainerDownSide">
                         <p>About Us</p>
-                        <p>Data Centre</p>
-                        <p>Security</p>
-                        <p>Contribute</p>
-                        <p>Contact Me</p>
+                        {/* <p>Data Centre</p> */}
+                        {/* <p>Security</p> */}
+                        {/* <p>Contribute</p> */}
+                        {/* <p>Contact Me</p> */}
                     </div>
 
 

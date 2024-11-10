@@ -20,11 +20,12 @@ export default function ViewRecord() {
     function DisplayRecords(data) {
         return (
             <ul key={uuid()} className="ViewPatient_Re">
-                <li><p>Issue:</p><p>{data.p_problem}</p></li>
+                <li><p>Issue:</p><p>{data.issue}</p></li>
                 <li><p>Description:</p><p>{data.description}</p></li>
-                <li><p>Date:</p><p className="PatientRecordDate">{data.Created_At}</p></li>
-                <li><p>HealthCare:</p><p>{data.healthcareName}</p></li>
-                <li><p>Medical Severity:</p><p className={data.medical_severity === "Dangerous" ? `redLabel` : ""}>{data.medical_severity}</p></li>
+                <li><p>Medical Severity:</p><p className={data.medical_severity === "High" ? `redLabel` : ""}>{data.medical_severity}</p></li>
+                <li><p>Date:</p><p className="PatientRecordDate">{data.created_at}</p></li>
+                <li><p>HealthCare:</p><p>{data.healthcare_name}</p></li>
+                <li><p>HealthCareID:</p><p>{data.createdby_}</p></li>
             </ul>
         )
     }
@@ -32,9 +33,9 @@ export default function ViewRecord() {
     async function GetPatientData(HID) {
         setFetched(prev => ({ ...prev, isFetched: true }))
         try {
-            const { data, res } = await FetchData(`/api/v1/healthcare/getpatientrecords?healthId=${HID}`)
+            const { data, res } = await FetchData(`/records/fetch?healthID=${HID}&list=15`)
             if (res.ok) {
-                setPatientData(data.HealthUser)
+                setPatientData(data.patient_records)
                 setFetched(prev => ({ ...prev, isAvailable: true }))
             } else if (res.status === 405) {
                 setFetched(prev => ({ ...prev, isRedirect: true }))
@@ -64,7 +65,7 @@ export default function ViewRecord() {
 
     function GetData() {
         const hidInput = document.getElementById("HID_input")
-        if (hidInput && hidInput.value.toString().length === 10) {
+        if (hidInput && hidInput.value.toString().length <= 30) {
             GetPatientData(hidInput.value)
             return
         }
@@ -78,8 +79,8 @@ export default function ViewRecord() {
         { "label": "Low" }
     ]
 
-    let patientRecords = fetched.isAvailable 
-        ? patientData.map((data) => DisplayRecords(data)) 
+    let patientRecords = fetched.isAvailable
+        ? patientData.map((data) => DisplayRecords(data))
         : (<p>Patient Records Will Show Here...</p>)
 
     return (
@@ -90,12 +91,12 @@ export default function ViewRecord() {
 
                 <div className="ViewPR_inputHID">
                     <label htmlFor="HID_input">Enter Patient Health ID</label>
-                    <input id="HID_input" type="number" name="HID" placeholder="Enter Health ID" onKeyUp={CallVR} />
+                    <input id="HID_input" type="text" name="HID" placeholder="Enter Health ID" onKeyUp={CallVR} />
                     <div className="SearchIcon" onClick={GetData}><i className="fa-solid fa-magnifying-glass"></i></div>
 
                     <Select id="FilterPatientRecords" options={FilterOption} onChange={FilterMedicalS} />
-                    <div 
-                        className={fetched.filtered ? "bgblue SearchIcon" : "SearchIcon"} 
+                    <div
+                        className={fetched.filtered ? "bgblue SearchIcon" : "SearchIcon"}
                         onClick={() => setFetched(prev => ({ ...prev, filtered: false }))}
                     >
                         Clear Filter

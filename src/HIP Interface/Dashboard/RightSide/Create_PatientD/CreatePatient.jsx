@@ -5,8 +5,6 @@ import { PostData } from "../../../LoadData"
 import { Navigate } from "react-router-dom"
 export default function CreatePatientD() {
     const Togglesuccesstxt = document.querySelector(".CreatePatient_viewAfterSuccess")
-
-
     const [SituationContainer, SetSituationContainer] = useState();
     const [IsLoaded, SetIsLoaded] = useState({
         IsLoaded: false,
@@ -20,18 +18,24 @@ export default function CreatePatientD() {
         sex: "",
         dob: "",
         bloodgrp: "",
-        BMI: "",
-        MarriageStatus: "",
-        Weight: "",
+        bmi: "",
+        marriage_status: "",
+        weight: "",
         email: "",
         mobilenumber: "",
-        aadharNumber: "",
-        Primarylocation: "",
+        aadhar_number: "",
+        primary_location: "",
         sibling: "",
         twin: "",
         fathername: "",
         mothername: "",
-        emergencynumber: ""
+        emergencynumber: "",
+        address: {
+            country: "India",
+            state: "UP",
+            city: "Kashi",
+            landmark: "BHU"
+        }
     })
 
     function OnChangeCPRData(e) {
@@ -53,8 +57,8 @@ export default function CreatePatientD() {
     function PostFetchDataForPBD(e) {
         e.preventDefault();
         const HealthCareId = document.getElementById("healthId")
-        if (HealthCareId.value.length !== 10) { // Replaced '1=' with '!=='
-            alert("HealthID Must Be 10 Characters Long!")
+        if (HealthCareId.value.length >= 30) {
+            alert("HealthID Must not Be 30 or more Characters Long!")
             return
         }
         FetchDataForPBD();
@@ -65,11 +69,9 @@ export default function CreatePatientD() {
         SetIsLoaded((p) => ({ ...p, IsLoaded: true }))
 
         try {
-            const { data, res } = await PostData(`/api/v1/healthcaredetails/createuserBio`, CPFormData) // removed err variable when it was never used
+            const { data, res } = await PostData(`/patientbiodata/create`, CPFormData) // removed err variable when it was never used
             if (res.status === 405) { SetIsLoaded((p) => ({ ...p, IsRedirected: true })) }
-
-            SetSituationContainer(data.message)
-            console.log(data)
+            SetSituationContainer(data.status)
         } catch (error) {
             SetSituationContainer(error.message)
         }
@@ -81,8 +83,8 @@ export default function CreatePatientD() {
     const twin = [{ "label": "Yes", "value": "Yes", "name": "twin" }, { "label": "No", "value": "No", "name": "twin" }]
     const sibling = [{ "label": "Yes", "value": "Yes", "name": "sibling" }, { "label": "No", "value": "No", "name": "sibling" }]
     const sex = [{ "label": "☕", "value": "☕", "name": "sex" }, { "label": "😎", "value": "😎", "name": "sex" }, { "label": "🙄", "value": "🙄", "name": "sex" }]
-    const Marriage = [{ "label": "Single", "value": "Single", "name": "MarriageStatus" }, { "label": "Dharti Ka Bhoj", "value": "Dharti Ka Bhoj", "name": "MarriageStatus" }]
-    
+    const Marriage = [{ "label": "Married", "value": "Married", "name": "MarriageStatus" }, { "label": "Dharti Ka Bhoj", "value": "Dharti Ka Bhoj", "name": "MarriageStatus" }]
+
     return (
         <>
             {IsLoaded.IsRedirected && (<Navigate to='/healthcare/login' replace={true} />)}
@@ -92,9 +94,6 @@ export default function CreatePatientD() {
                     <h2>Create Patient Data</h2>
                     <div className="CreateContainer">
                         <form onSubmit={PostFetchDataForPBD} method="POST">
-                            <label>Health ID</label><br></br>
-                            <input type="text" className="PDContainer" id="healthId" name="health_id" placeholder="Health ID" onChange={OnChangeCPRData} required /><br></br>
-
                             <label>First Name</label><br></br>
                             <input type="text" className="PDContainer" name="fname" placeholder="First Name" required onChange={OnChangeCPRData} /><br></br>
 
@@ -115,13 +114,13 @@ export default function CreatePatientD() {
                             <input type="text" className="PDContainer" name="bloodgrp" placeholder="Blood Group" required onChange={OnChangeCPRData} /><br></br>
 
                             <label>BMI</label><br></br>
-                            <input type="text" className="PDContainer" name="BMI" placeholder="BMI" required onChange={OnChangeCPRData} /><br></br>
+                            <input type="text" className="PDContainer" name="bmi" placeholder="BMI" required onChange={OnChangeCPRData} /><br></br>
 
                             <label>Marriage Status</label><br></br>
-                            <Select className="Siblings PDC" options={Marriage} name="Marriage Status" onChange={OnChangeSelectPDC} ></Select>
+                            <Select className="Siblings PDC" options={Marriage} name="marriage_status" onChange={OnChangeSelectPDC} ></Select>
 
                             <label>Weight</label><br></br>
-                            <input type="number" className="PDContainer" name="Weight" placeholder="Weight" required onChange={OnChangeCPRData} /><br></br>
+                            <input type="number" className="PDContainer" name="weight" placeholder="Weight" required onChange={OnChangeCPRData} /><br></br>
 
                             <label>Email</label><br></br>
                             <input type="email" className="PDContainer" name="email" placeholder="Email" required onChange={OnChangeCPRData} /><br></br>
@@ -130,16 +129,16 @@ export default function CreatePatientD() {
                             <input type="number" className="PDContainer" name="mobilenumber" placeholder="Mobile Number" required onChange={OnChangeCPRData} /><br></br>
 
                             <label>Aaddhar Number</label><br></br>
-                            <input type="number" className="PDContainer" name="aadharNumber" placeholder="Aaddhar Number" required onChange={OnChangeCPRData} /><br></br>
+                            <input type="number" className="PDContainer" name="aadhar_number" placeholder="Aaddhar Number" required onChange={OnChangeCPRData} /><br></br>
 
                             <label>Primary From</label><br></br>
-                            <input type="text" className="PDContainer" name="Primarylocation" placeholder="Primary From" required onChange={OnChangeCPRData} /><br></br>
+                            <input type="text" className="PDContainer" name="primary_location" placeholder="Primary From" required onChange={OnChangeCPRData} /><br></br>
 
                             <label>Siblings ?</label><br></br>
-                            <Select className="Siblings PDC" options={sibling} name="Siblings" onChange={OnChangeSelectPDC}></Select>
+                            <Select className="Siblings PDC" options={sibling} name="sibling" onChange={OnChangeSelectPDC}></Select>
 
                             <label>Twin ?</label><br></br>
-                            <Select className="Twin PDC" options={twin} name="Twin" onChange={OnChangeSelectPDC}></Select>
+                            <Select className="Twin PDC" options={twin} name="twin" onChange={OnChangeSelectPDC}></Select>
 
                             <label>Father Name</label><br></br>
                             <input type="text" className="PDContainer" name="fathername" placeholder="पिता श्री" required onChange={OnChangeCPRData} /><br></br>
@@ -149,7 +148,6 @@ export default function CreatePatientD() {
 
                             <label>Emergency Contact Number</label><br></br>
                             <input type="text" className="PDContainer" name="emergencynumber" placeholder="Emergency Number" required onChange={OnChangeCPRData} /><br></br>
-
                             <input type="submit" id="SubmitBtnPDC" disabled={IsLoaded.IsLoaded} value={IsLoaded.IsLoaded ? "Validating.." : "Create"} />
                         </form>
                     </div>

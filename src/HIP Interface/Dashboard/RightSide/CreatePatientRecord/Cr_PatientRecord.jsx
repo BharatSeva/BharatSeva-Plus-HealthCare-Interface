@@ -33,14 +33,14 @@ export default function CreatePatientRecord() {
             "medical_severity": selectedOptions.value
         }))
     }
-
+    
     async function Putdata(e) {
         e.preventDefault();
         DisplayText.classList.add("Display_none")
 
         SetIsLoaded((p) => ({ ...p, IsLoaded: true }))
         try {
-            const { data, res } = await PostData(`/api/v1/healthcare/createpatientproblem`, PRCreator)
+            const { data, res } = await PostData(`/records/create`, PRCreator)
             SetIsLoading(data.message)
             if (res.status === 405) { SetIsLoaded((p) => ({ ...p, IsRedirected: true })) }
             SetIsLoaded((p) => ({ ...p, IsLoaded: false }))
@@ -53,10 +53,10 @@ export default function CreatePatientRecord() {
     }
 
     const options = [
-        { label: "Dangerous - 9/8", value: "Dangerous" },
-        { label: "High - 7/6", value: "High" },
-        { label: "Semi-Mid - 3/2", value: "Semi-mid" },
+        { label: "Normal - 3/2", value: "Normal" },
         { label: "Low - 1/0", value: "Low" },
+        { label: "High - 7/6", value: "High" },
+        { label: "Severe - 9/8", value: "Severe" },
     ]
 
     const Issuetxt = document.getElementsByName("p_problem")
@@ -83,7 +83,7 @@ export default function CreatePatientRecord() {
                     <form onSubmit={Putdata}>
 
                         <label>Health ID</label>
-                        <input type="number" name="health_id" onChange={OnHandleChange} required></input><br></br>
+                        <input type="text" name="health_id" onChange={OnHandleChange} required></input><br></br>
 
                         <label>Medical Severity</label>
                         <Select className="SelectOptions" options={options} name="medical_severity" onChange={handlechange} required></Select>

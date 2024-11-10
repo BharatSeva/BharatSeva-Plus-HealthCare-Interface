@@ -7,7 +7,7 @@ import { FetchData } from "../../../LoadData";
 
 export default function Appointment() {
     var uuid = require('uuid-random');
-    const [Fetched, SetFetched] = useState()
+    const [Fetched, SetFetched] = useState([])
     const [IsFetched, SetIsFetched] = useState({
         IsFetched: true,
         IsGood: true,
@@ -17,7 +17,7 @@ export default function Appointment() {
     async function fetchdata() {
         SetIsFetched((p) => ({ ...p, IsFetched: false }))
         try {
-            let { data, res } = await FetchData(`/api/v1/healthcaredetails/healthcare/appointment`)
+            let { data, res } = await FetchData(`/appointments/get?limit=15`)
             if (res.ok) {
                 SetFetched(data.appointments)
                 SetIsFetched((p) => ({ ...p, IsFetched: true }))
@@ -27,6 +27,7 @@ export default function Appointment() {
                 return
             }
         } catch (err) {
+            console.log(err)
             alert("Could Not Connect To Server")
             SetIsFetched((p) => ({ ...p, IsGood: false, IsFetched: true }))
         }

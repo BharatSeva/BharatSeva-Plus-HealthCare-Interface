@@ -1,8 +1,7 @@
 import { useState } from "react";
 import "./Register.css";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-// import InsecureContent from "../InsecureContent/InsecureContent"
+import { Link } from "react-router-dom";
 
 export default function Register() {
   let PasswordStatus = document.querySelector("#RegisterPasswordStatus");
@@ -13,13 +12,39 @@ export default function Register() {
     IsGood: false,
     IsRedirect: false,
   });
-  const [FormData, SetFormData] = useState();
+
+  const [FormData, SetFormData] = useState({
+    name: "",
+    email: "",
+    appointment_fee: "",
+    availability: "",
+    total_facilities: "",
+    total_mbbs_doc: "",
+    total_worker: "",
+    no_of_beds: "",
+    about: "",
+    password: "",
+    address: {
+      country: "",
+      landmark: "",
+      city: "",
+      state: ""
+    }
+  });
+
   function OnclickChange(e) {
     const { name, value } = e.target;
-    SetFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    if (["country", "landmark", "city", "state"].includes(name)) {
+      SetFormData((prev) => ({
+        ...prev,
+        address: { ...prev.address, [name]: value }
+      }));
+    } else {
+      SetFormData((prev) => ({
+        ...prev,
+        [name]: value
+      }));
+    }
   }
 
   async function RegisterAPIGOESHere(e) {
@@ -28,7 +53,7 @@ export default function Register() {
       document.querySelector("#Registration_Password").value !==
       document.querySelector("#Registration_CheckPassword").value
     ) {
-      PasswordStatus.textContent = "Password Do Not Match :(";
+      PasswordStatus.textContent = "Passwords Do Not Match :(";
       PasswordStatus.classList.remove("DiplayNone");
       PasswordStatus.style.color = "red";
       return;
@@ -39,7 +64,7 @@ export default function Register() {
     SetStatus("Loading...");
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/v1/healthcareauth/register`,
+        `${process.env.REACT_APP_API_URL}/auth/register`,
         {
           method: "POST",
           headers: {
@@ -50,21 +75,22 @@ export default function Register() {
       );
       const data = await response.json();
       if (response.ok) {
-        SetStatus("Registration Successfull! Please Login :)");
+        SetStatus("Registration Successful! Please Login :)");
         SetIsFetched((p) => ({ ...p, IsRedirect: true }));
-        // Use === instead of ==
       } else if (response.status === 400) {
         SetStatus(
-          "Seems Like Anyone else already Registered With Given Email Or HealthCareID :("
-        );
+          "Another user has already registered with the provided email or Healthcare ID :("
+        ); 
       } else {
         SetStatus(data.message);
       }
       SetIsFetched((p) => ({ ...p, IsGood: true }));
+      console.log(data)
     } catch (err) {
       alert("Could Not Connect to Server...🙄");
     }
   }
+
   function togglePasswordVisibility() {
     setShowPassword((prev) => !prev);
   }
@@ -73,9 +99,8 @@ export default function Register() {
     <>
       <div className="RegisterOuterContainerHealthCare">
         <div
-          className={`HIP_RegisterContainer DisplayFlexjustifyAlignitem ${
-            Fetched.IsFetched ? "DisplayOpacity" : ""
-          }`}
+          className={`HIP_RegisterContainer DisplayFlexjustifyAlignitem ${Fetched.IsFetched ? "DisplayOpacity" : ""
+            }`}
         >
           <div className="RegisterLable">
             <p>HealthCare Registration 🩺</p>
@@ -83,32 +108,21 @@ export default function Register() {
               <span>
                 <strong>Note</strong>
               </span>{" "}
-              : After Successfull Registration <br></br> You have to Login for
-              Dashboard.
+              : After Successful Registration, <br></br> Please Login for
+              Dashboard access.
             </p>
 
             <ul className="RegisterPagetxt">
-              <li>Healthcare ID Must be 10 Characters Long.</li>
+              <li>All fields have limits. Try to adhere to them.</li>
               <li>
-                Keep License Number Same as Healthcare ID for the shake of
-                simplicity.
-              </li>
-              <li>All the inputs have limits try to avoid them. </li>
-              <li>
-                If you have any feedback or you Encountered Unusual Error you
-                can simply <a href="mailto:21vaibhav11@gmail.com">Mail</a> Me
-              </li>
-              <li>
-                If you are Flutter developer or want to build your own project
-                and want to use my API you can{" "}
-                <a href="mailto:21vaibhav11@gmail.com">Mail</a> Me regarding
-                this. I'm happy to help 😊
+                For feedback, suggestions, or to report errors, start a discussion on our{" "}
+                <a href="https://github.com/orgs/BharatSeva/discussions">GitHub</a>.
               </li>
             </ul>
           </div>
           <div className="RegisterBox">
             <p className="WelcomeGreetings">
-              Welcome To Health Care Registration Portal
+              Welcome to the Registration Portal
             </p>
 
             <form onSubmit={RegisterAPIGOESHere}>
@@ -116,48 +130,20 @@ export default function Register() {
               <input
                 type="text"
                 placeholder="Enter Health Care Name"
-                name="healthcareName"
+                name="name"
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
-              <label>
-                <span
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "flex-start",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <p>Health Care ID : </p>
-                  <p
-                    className="HelptextinRegister"
-                    style={{ fontSize: "6px", marginTop: "-10px" }}
-                  >
-                    (HealthCare ID Should Be Unique)
-                  </p>
-                </span>
-              </label>
+              
+              <label>Country</label>
               <input
-                type="number"
-                placeholder="Unique ID to Identify You"
-                name="healthcareId"
+                type="text"
+                placeholder="Enter Country"
+                name="country"
                 onChange={OnclickChange}
                 required
               />
-              {/* <p className="HelptextinRegister">HealthCare ID Shoudl Be Unique</p> */}
-              <br></br>
-              <label>License Number :</label>
-              <input
-                type="number"
-                placeholder="Same As Your HealthCare Number"
-                name="healthcarelicense"
-                onChange={OnclickChange}
-                required
-              />
-              <br></br>
-
+              
               <label>State :</label>
               <input
                 type="text"
@@ -166,7 +152,6 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
               <label>City</label>
               <input
@@ -176,17 +161,6 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
-
-              <label>Country</label>
-              <input
-                type="text"
-                placeholder="Enter Country"
-                name="country"
-                onChange={OnclickChange}
-                required
-              />
-              <br></br>
 
               <label>Landmark</label>
               <input
@@ -196,7 +170,6 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
               <label>Email :</label>
               <input
@@ -206,7 +179,6 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
               <label>Appointment Fee :</label>
               <input
@@ -216,7 +188,6 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
               <label>Availability :</label>
               <input
@@ -226,17 +197,15 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
-              <label>Total Facilites :</label>
+              <label>Total Facilities :</label>
               <input
                 type="number"
-                placeholder="Enter Total Facilites"
+                placeholder="Enter Total Facilities"
                 name="total_facilities"
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
               <label>Total MBBS Doctors :</label>
               <input
@@ -246,7 +215,6 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
               <label>Total Workers :</label>
               <input
@@ -256,7 +224,6 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
               <label>No. Of Beds :</label>
               <input
@@ -266,7 +233,6 @@ export default function Register() {
                 onChange={OnclickChange}
                 required
               />
-              <br></br>
 
               <div
                 className="registerHealthCaretextareaContainer"
@@ -298,16 +264,16 @@ export default function Register() {
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter Password"
                 id="Registration_Password"
+                name="password"
+                onChange={OnclickChange}
                 required
               />
-              <br></br>
+
               <label>Password Again :</label>
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Enter Your Password Again"
-                name="password"
                 id="Registration_CheckPassword"
-                onChange={OnclickChange}
                 required
               />
               <p id="RegisterPasswordStatus" className="DiplayNone"></p>
@@ -323,40 +289,7 @@ export default function Register() {
                 <button style={{ width: "100%" }}>Register*</button>
               </div>
             </form>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                marginTop: "30px",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
-              <div
-                style={{
-                  width: "45%",
-                  height: "1px",
-                  backgroundColor: "whitesmoke",
-                }}
-              ></div>
-              <div
-                style={{
-                  fontSize: "1.5rem",
-                  fontWeight: "bolder",
-                  color: "white",
-                }}
-              >
-                OR
-              </div>
-              <div
-                style={{
-                  width: "45%",
-                  height: "1px",
-                  backgroundColor: "whitesmoke",
-                }}
-              ></div>
-            </div>
+
             <p className="LoginbtnRedirect">
               Already Registered! <Link to="/healthcare/login">Login</Link>
             </p>
@@ -375,28 +308,20 @@ export default function Register() {
       {Fetched.IsFetched && (
         <div className="Popoverdropbox displayFlexWithR">
           <div className="PopOvercontainerBoxregisterpage displayFlexWithR">
-            <h1>{Status}</h1>
-            {Fetched.IsRedirect ? (
-              <NavLink to="/healthcare/login">Login</NavLink>
-            ) : (
-              Fetched.IsGood && (
-                <button
-                  id="AtregisterPage"
-                  onClick={() =>
-                    SetIsFetched((p) => ({ IsGood: false, IsFetched: false }))
-                  }
+            <div className="dropboxwithregpage">
+              <h1>{Status}</h1>
+              <div className="DisplayFlexjustifyAlignitem">
+                <Link
+                  className="NavLinkregister"
+                  to={Fetched.IsRedirect ? "/healthcare/login" : "#"}
                 >
-                  Continue
-                </button>
-              )
-            )}
+                  {Fetched.IsRedirect ? "Please Login" : "Cancel"}
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       )}
-
-      {/* This one is for Popup */}
-      {/* <InsecureContent /> */}
     </>
   );
 }
-// (<button id="AtregisterPage" onClick={() => SetIsFetched((p) => ({ IsGood: false, IsFetched: false }))}>Continue</button>)

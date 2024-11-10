@@ -18,8 +18,8 @@ export default function ViewPatientBioData() {
     async function GetPatientBioData(HID) {
         SetIsloading((p) => ({ ...p, IsFetched: true }))
         try {
-            const { data, res } = await FetchData(`/api/v1/healthcare/getuserBiodata/${HID}`)
-            SetPat_BioData(data.User)
+            const { data, res } = await FetchData(`/patientbiodata/get?healthID=${HID}`)
+            SetPat_BioData(data)
             SetIsFetched(true)
             if (res.status === 405) { SetIsloading((p) => ({ ...p, IsRedirect: true })) }
         } catch (err) {
@@ -38,7 +38,7 @@ export default function ViewPatientBioData() {
 
     function FetchDataPBD() {
         // Use === instead of ==
-        if (document.getElementById("HID_inputBIOData").value.toString().length === 10) {
+        if (document.getElementById("HID_inputBIOData").value.toString().length <= 30) {
             GetPatientBioData(document.getElementById("HID_inputBIOData").value)
             return;
         }
@@ -61,19 +61,20 @@ export default function ViewPatientBioData() {
                             <div key={6}><p>DOB:</p><p>{Pat_BioData.dob ? Pat_BioData.dob : "--/--"}</p></div>
                             <div key={7}><p>Blood Group:</p><p>{Pat_BioData.bloodgrp}</p></div>
                             <div key={8}><p>Siblings:</p><p>{Pat_BioData.sibling}</p></div>
-                            <div key={9}><p>Weight:</p><p>{Pat_BioData.Weight}</p></div>
-                            <div key={10}><p>BMI:</p><p>{Pat_BioData.BMI}</p></div>
+                            <div key={9}><p>Weight:</p><p>{Pat_BioData.weight}</p></div>
+                            <div key={10}><p>BMI:</p><p>{Pat_BioData.bmi}</p></div>
                             <div key={11}><p>Twin:</p><p>{Pat_BioData.twin}</p></div>
-                            <div key={12}><p>Primary From :</p><p>{Pat_BioData.Plocation}</p></div>
-                            <div key={120}><p>Created By:</p><p>{Pat_BioData.createdBy}</p></div>
-                            <div key={13}><p>Created At:</p><p>{Pat_BioData.createdAt}</p></div>
-                            <div key={14}><p>Aadhar Number:</p><p>{Pat_BioData.aadharNumber}</p></div>
-                            <div key={15}><p>Marriage Status:</p><p>{Pat_BioData.MarriageStatus}</p></div>
+                            <div key={12}><p>Primary From :</p><p>{Pat_BioData.primary_location}</p></div>
+                            <div key={14}><p>Aadhar Number:</p><p>{Pat_BioData.aadhar_number}</p></div>
+                            <div key={15}><p>Marriage Status:</p><p>{Pat_BioData.marriage_status}</p></div>
                             <div key={16}><p>Mobile Number:</p><p>{Pat_BioData.mobilenumber}</p></div>
                             <div key={17}><p>Email:</p><p>{Pat_BioData.email}</p></div>
                             <div key={18}><p>Father Name:</p><p>{Pat_BioData.fathername}</p></div>
                             <div key={19}><p>Mother Name:</p><p>{Pat_BioData.mothername}</p></div>
                             <div key={20}><p>Emergency Number:</p><p>{Pat_BioData.emergencynumber}</p></div>
+                            <div key={13}><p>Created At:</p><p>{Pat_BioData.created_at}</p></div>
+                            <div key={13}><p>Last Updated At:</p><p>{Pat_BioData.updated_at}</p></div>
+                            <div key={120}><p>HealthcareID:</p><p>{Pat_BioData.healthcare_id}</p></div>
                         </div>
                     </div>
                 )
@@ -92,7 +93,7 @@ export default function ViewPatientBioData() {
 
                 <div className="ViewPR_inputHID">
                     <label>Enter Patient Health ID</label>
-                    <input id="HID_inputBIOData" type="number" name="HID" placeholder="Enter Health ID" onKeyUp={CallPBD} />
+                    <input id="HID_inputBIOData" type="text" name="HID" placeholder="Enter Health ID" onKeyUp={CallPBD} />
                     <div className="SearchIcon" onClick={FetchDataPBD} ><i className="fa-solid fa-magnifying-glass"></i></div>
 
                 </div>

@@ -28,13 +28,13 @@ export default function Setting() {
 
     useEffect(() => {
         GetData();
-    }) // Remove the useEffect dependency array from useEffect
+    })
 
     async function GetData() {
         try {
-            const { data, res } = await FetchData('/api/v1/healthcaredetails/healthcare/getpreferance')
+            const { data, res } = await FetchData('/preferance/get?cache=true')
             if (res.ok) {
-                CheckForRadioButton(data)
+                CheckForRadioButton(data.preferance)
             }
             else if (res.status === 405) {
                 alert("Request Limit Reached")
@@ -57,7 +57,7 @@ export default function Setting() {
 
     async function confirmDeleteAccount() {
         try {
-            let response = await fetch(`http://localhost:5000/api/v1/healthcaredetails/healthcare/deleteaccount`, {
+            let response = await fetch(`${process.env.REACT_APP_API_URL}/delete/account`, {
                 method: "DELETE",
                 headers: {
                     "content-type": "application/json",

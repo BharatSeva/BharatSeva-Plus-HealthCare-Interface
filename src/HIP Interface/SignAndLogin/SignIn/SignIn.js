@@ -1,11 +1,15 @@
 import "./SignIn.css";
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-// import InsecureContent from "../InsecureContent/InsecureContent";
 import GoogleOAuth from "../GoogleAuthentication/OAuth";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+
 export default function SignIN() {
-  const [FormData, SetFormData] = useState({});
+  const [FormData, SetFormData] = useState({
+    healthcare_id: "",
+    healthcare_license: "",
+    password: ""
+  });
   const [IsLoaded, SetIsLoaded] = useState({
     IsLoaded: false,
     IsAuthenticated: false,
@@ -14,17 +18,28 @@ export default function SignIN() {
   const [Statustxt, SetStatustxt] = useState("👋");
   const [POSTDATE, SetPOSTDATE] = useState({});
   const [showPassword, setShowPassword] = useState(false);
-  function OnChange(e) {
-    const { name, value } = e.target;
-    SetFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    SetFormData((prev) => ({ ...prev, LoginDT: POSTDATE }));
-  }
+
+  useEffect(() => {
+    // Parse URL query parameters and populate form fields if they exist
+    const params = new URLSearchParams(window.location.search);
+    const healthcare_id = params.get("healthcare_id");
+    const password = params.get("pass");
+    const license = params.get("license");
+
+    if (healthcare_id || password) {
+      SetFormData((prev) => ({
+        ...prev,
+        healthcare_id: healthcare_id || prev.healthcare_id,
+        password: password || prev.password,
+        healthcare_license: license || prev.healthcare_license
+      }));
+    }
+
+    // Additional data collection for POSTDATE
+    Data();
+  }, []);
 
   async function Data() {
-    // Batt
     try {
       let battery = await navigator.getBattery();
       SetPOSTDATE((p) => ({
@@ -35,10 +50,10 @@ export default function SignIN() {
     } catch (err) {
       SetPOSTDATE((p) => ({
         ...p,
-        batteryLevelProblem: `SomethingGotwrong ${err}`,
+        batteryLevelProblem: `Something went wrong ${err}`,
       }));
     }
-    // GeoLocation
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((pe) => {
         SetPOSTDATE((p) => ({
@@ -48,20 +63,25 @@ export default function SignIN() {
         }));
       });
     } else {
-      SetPOSTDATE((p) => ({ ...p, Positionerror: `Something Wrong` }));
+      SetPOSTDATE((p) => ({ ...p, Positionerror: `Something went wrong` }));
     }
   }
 
-  useEffect(() => {
-    Data();
-  }, []);
+  function OnChange(e) {
+    const { name, value } = e.target;
+    SetFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    SetFormData((prev) => ({ ...prev, LoginDT: POSTDATE }));
+  }
 
   async function LoginHealthCare(e) {
     e.preventDefault();
     SetIsLoaded((p) => ({ ...p, IsLoaded: true }));
     try {
       let res = await fetch(
-        `${process.env.REACT_APP_API_URL}/api/v1/healthcareauth/login`,
+        `${process.env.REACT_APP_API_URL}/auth/login`,
         {
           method: "POST",
           headers: {
@@ -90,6 +110,7 @@ export default function SignIN() {
   function togglePasswordVisibility() {
     setShowPassword((prev) => !prev);
   }
+
   return (
     <>
       {IsLoaded.IsAuthenticated && (
@@ -100,12 +121,6 @@ export default function SignIN() {
       </div>
 
       <div className="LoginPageContainer">
-        <div className="HealthCareLoginUpperTxt">
-          <p>
-            <span>Note :</span> You Need To Register Your Self before Login.
-          </p>
-        </div>
-
         <div className="LoginForHealthCare_rightSide DisplayFlexjustifyAlignitem">
           <div
             className="HealthCareLoginFormContainer"
@@ -118,10 +133,11 @@ export default function SignIN() {
 
               <label>Health Care Number :</label>
               <input
-                type="number"
+                type="text"
                 placeholder="Health Care Number"
-                name="healthcareId"
+                name="healthcare_id"
                 className="inputs"
+                value={FormData.healthcare_id}
                 onChange={OnChange}
                 required
               />
@@ -129,11 +145,12 @@ export default function SignIN() {
               <label>License Number :</label>
               <input
                 className="inputs"
-                type="number"
+                type="text"
                 placeholder="License Number"
-                name="healthcarelicense"
-                required
+                name="healthcare_license"
+                value={FormData.healthcare_license}
                 onChange={OnChange}
+                required
               />
               <br></br>
               <label>Password :</label>
@@ -143,8 +160,9 @@ export default function SignIN() {
                 placeholder="Password"
                 maxLength="30"
                 name="password"
-                required
+                value={FormData.password}
                 onChange={OnChange}
+                required
               />
               <div style={{ width: "90%", textAlign: "right" }}>
                 <button type="button" onClick={togglePasswordVisibility}>
@@ -156,7 +174,6 @@ export default function SignIN() {
                 id="LoginBtn"
                 disabled={IsLoaded.IsLoaded}
                 value={IsLoaded.IsLoaded ? "Validating..." : "Login"}
-                required
                 style={{ height: "40px" }}
               />
               <div
@@ -195,7 +212,7 @@ export default function SignIN() {
                   marginLeft: "-70px",
                 }}
               >
-                <GoogleOAuthProvider clientId="476285565826-8smpt7q2bh9o1ace0iqn8lcmn52maele.apps.googleusercontent.com">
+                <GoogleOAuthProvider clientId="your-client-id">
                   <GoogleOAuth />
                 </GoogleOAuthProvider>
               </div>
@@ -212,17 +229,14 @@ export default function SignIN() {
             <p>Points to note :</p>
             <ul>
               <li>
-                This WebApp is still underdevelopment some functionalities may
-                not work as expected !
-              </li>
-              <li>Only 50 requests can be made from one account.</li>
-              <li>
-                We may occasionally delete accounts in order to improve the
-                platform.
+                This WebApp is still under development. Some functionalities may
+                not work as expected.
               </li>
               <li>
-                All Your activity will be logged in case you made or view
-                patient data.
+                We may occasionally delete accounts to improve the platform.
+              </li>
+              <li>
+                All activity will be logged if you make or view patient data.
               </li>
             </ul>
           </div>
@@ -240,9 +254,6 @@ export default function SignIN() {
           </div>
         </div>
       </div>
-
-      {/* This one is for PopUp */}
-      {/* <InsecureContent /> */}
     </>
   );
 }

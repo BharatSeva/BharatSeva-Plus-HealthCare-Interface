@@ -58,7 +58,7 @@
     background-color: #272525;
     border-radius: 1vh;
     padding: 1vh 1vw;
-    width: 27vw;
+    width: 33vw;
     box-shadow: 0px 1px 9px 3px black;
     z-index: 100;
 }
@@ -97,13 +97,17 @@
 }
 
 /* Account PopOver Goes Here */
+.popid{
+    font-size: 1.5vh;
+    color: orange;
+}
 .HealthCare_AccountPopOver {
     position: absolute;
     top: 7vh;
     right: 1vw;
     border-radius: 1vh;
-    height: 40vh;
-    width: 18vw;
+    height: 45vh;
+    width: 23vw;
     background-color: rgb(34, 34, 34);
     box-shadow: -5px 9px 9px black;
     z-index: 100;

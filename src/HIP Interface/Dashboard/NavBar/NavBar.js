@@ -35,8 +35,7 @@ export default function NavBar({ toggleSideBar }) {
                         <div className="HealthCare_NotificationPopOver DisplayNone">
                             <ul>
                                 <li>Welcome to Bharat Seva HealthCare Dashboard</li>
-                                <li>This App is still Under-development :)</li>
-                                <li>Star this project!</li>
+                                <li>Remember logs will generate incase you view or make any changes to your patient data</li>
                             </ul>
                         </div>
 
@@ -46,11 +45,12 @@ export default function NavBar({ toggleSideBar }) {
                         <div className="HealthCare_AccountPopOver DisplayNone">
                             <ul>
                                 <li style={{ color: "lime" }}>Signed In As</li>
-                                <li className="HealthcareNameLableAccount">{HealthCare.name}</li>
+                                <li className="HealthcareNameLableAccount">{HealthCare.healthcare_name}</li>
+                                <li className="HealthcareNameLableAccount popid">{HealthCare.healthcare_id}</li>
                                 <hr></hr>
-                                <li>  <a target="__blank" href="https://github.com/CaptainTron/BharatSeva-User-Interface/discussions">Go to Discussion</a></li>
-                                <li> <a target="__blank" href="https://github.com/CaptainTron/BharatSeva-HealthCare-Interface">Star this Project ⭐</a></li>
-                                <li>API Integrations</li>
+                                <li><a target="__blank" href="https://github.com/BharatSeva/HealthCare-Interface/discussions">Go to Discussion</a></li>
+                                <li><a target="__blank" href="https://github.com/BharatSeva/HealthCare-Interface">Star this Project ⭐</a></li>
+                                <li><a target="__blank" href="https://github.com/BharatSeva/Healthcare-Server/blob/main/Healthcare.postman_collection.json">API Integrations 🚀</a></li>
                                 <li onClick={() => sessionStorage.clear()}><NavLink to='/healthcare/login' className="LogoutHealthcare" >Log Out</NavLink></li>
 
                             </ul>

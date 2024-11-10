@@ -7,7 +7,7 @@ Refer to [Official Organisation](https://github.com/BharatSeva) to get better id
 
 > [!TIP]
 > Hi everyone! Hope you're doing well, this is to let you know that you can access webapps hosted on public links using these credentials:  
-> ### [HealthCare Interface 🔗](http://4.236.178.190:5000/healthcare/login)  
+> ### HealthCare Interface 🔗  
 > **HealthCare Number** :  2021071042  
 > **License Number** :     2021071042  
 > **Password** : 00000  
@@ -50,8 +50,8 @@ Refer to [Official Organisation](https://github.com/BharatSeva) to get better id
 
 ## Tech Stack
 - **Frontend**: React.js
-- **Backend**: Express.js (Node.js)
-- **Database**: MongoDB, Firebase
+- **Backend**: Golang, Nginx, Docker, RabbitMQ
+- **Database**: MongoDB, Postgres
 - **Authentication**: OAuth 2.0, JWT
 ---
 
@@ -60,8 +60,8 @@ Refer to [Official Organisation](https://github.com/BharatSeva) to get better id
 
 1. **Clone the repository**:
    ```
-   git clone https://github.com/<your-username>/<BharatSeva-Plus-HealthCare-Interface.git>
-   cd bharat-seva-plus
+   git clone https://github.com/BharatSeva/HealthCare-Interface.git
+   cd HealthCare-Interface
    ```
 2. **Install dependencies**: Navigate to the server directory and install dependencies:  
 	```
@@ -70,22 +70,19 @@ Refer to [Official Organisation](https://github.com/BharatSeva) to get better id
 4. **Environment Variables**: Create .env.production  and .env.development file in the root directory of the server with the following variables:   
 	```
  	# FOR PRODUCTION
-	REACT_APP_API_URL=http://4.236.178.190:5000  # Do not include trailing '/' in URL 
+	REACT_APP_API_URL=http://57.154.208.100/api/v1/healthcare  # Do not include trailing '/' in URL 
 	```  
 	```
  	# FOR DEVELOPMENT
- 	REACT_APP_API_URL=http://localhost:5000  # Do not include trailing '/' in URL 
+ 	REACT_APP_API_URL=http://localhost/api/v1/healthcare # Do not include trailing '/' in URL 
  	```  
 5. Run the application using  
 	```
  	npm start
   	```
- > [!IMPORTANT]  
-> Please sync your local files with ``` git pull ``` fequently to avoid conflicts.
 
-
-> You can set up express backend for this project to test your application!  
-> Refer to Bharat Seva Express Server to know to setup and test your application    
+> You can set up backend for this project to test your application!  
+> Refer to Healthcare Server to know to setup and test your application    
 
 
 ## Contributing
@@ -93,7 +90,7 @@ We welcome contributions from the open-source community! Whether it's fixing bug
 Please refer to [CONTRIBUTING.md](./CONTRIBUTING.md) file for more information on how to contribute
 
 ## License
-  This project is licensed under the MIT License.
+This project is licensed under the MIT License.
 
 Contact
 For any questions or inquiries regarding this project, feel free to reach out or start the discussion. 
