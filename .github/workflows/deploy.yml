@@ -1,4 +1,4 @@
-name: Deploy build to AzureVM
+name: Deploy
 on:
   push:
     branches:
@@ -20,6 +20,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # create .env.production or create if not present in folder!!!
+      - name: Overwrite or Create .env.production
+        run: echo "REACT_APP_API_URL=http://${{ secrets.HOST }}/api/v1/healthcare" > .env.production
+
       - name: Build the React app
         run: | 
           CI=false
@@ -36,11 +40,21 @@ jobs:
           echo "Host ${{ secrets.HOST }}" > /home/runner/.ssh/config
           echo "  StrictHostKeyChecking no" >> /home/runner/.ssh/config
 
-      - name: Copy build files to AzureVM
+      # create static_healthcare if not exists
+      - name: Ensure static_healthcare directory exists
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          script: |
+            mkdir -p /home/azureuser/server/static_healthcare
+
+      - name: Copy build files to server
         run: |
           scp -i /home/runner/.ssh/id_rsa -r build/* ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/home/azureuser/server/static_healthcare/
        
-      - name: Deploy to VM
+      - name: Deploy to server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}

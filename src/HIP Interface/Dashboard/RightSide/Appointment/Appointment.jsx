@@ -41,9 +41,9 @@ export default function Appointment() {
     if (Fetched) {
         Appoinments = Fetched.length ? Fetched.map((data) => (
             <div key={uuid()} className="AppointContainer">
-                <p key={i++}><span>Status :</span>{new Date().toISOString().split('T')[0] > data.appointment_date ? <span className="CompletedApp">Completed</span> : <span className="UpcomingApp">Upcoming</span>}</p>
-                <p key={i++}><span>Patient Name :</span>{data.name}</p>
-                <p key={i++}><span>Health ID :</span>{data.health_ID}</p>
+                <p key={i++}><span>Status :</span>{data.status}</p>
+                <p key={i++}><span>Patient Name :</span>{data.fullname}</p>
+                <p key={i++}><span>Health ID :</span>{data.health_id}</p>
                 <p key={i++}><span>Appointment Date :</span>{data.appointment_date}</p>
                 <p key={i++}><span>Appointment Time :</span>{data.appointment_time}</p>
                 <p key={i++}><span>Department :</span>{data.department}</p>

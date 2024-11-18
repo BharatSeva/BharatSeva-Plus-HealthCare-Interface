@@ -1,96 +1,92 @@
-# Bharat Seva+ (HealthCare Interface)  [![Deploy to Azure VM](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/azure-apps-node.yml/badge.svg)](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/azure-apps-node.yml)  [![Strict ESLint Check](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/eslintcheck.yaml/badge.svg)](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/eslintcheck.yaml)
+# Bharat Seva+ (Healthcare Interface)  
+[![Deploy](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/azure-apps-node.yml/badge.svg)](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/azure-apps-node.yml)    [![Strict ESLint Check](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/eslintcheck.yaml/badge.svg)](https://github.com/BharatSeva/BharatSeva-Plus-HealthCare-Interface/actions/workflows/eslintcheck.yaml)
 
-Welcome to **Bharat Seva+ HealthCare Interface**, an innovative healthcare management platform designed to simplify patient appointments, health record management, and communication between patients and healthcare professionals. With Bharat Seva+, healthcare providers can easily manage patient data, and patients can store and access their health records anytime, anywhere.    
-Refer to [Official Organisation](https://github.com/BharatSeva) to get better idea of this whole project.
+Welcome to **Bharat Seva+ Healthcare Interface**, a platform thoughtfully designed to simplify healthcare management for providers and patients alike. This interface enables healthcare professionals to manage patient data, schedule appointments, and securely store health records, while patients can easily access their healthcare information anytime, anywhere.  
+Refer to our [Official Organization](https://github.com/BharatSeva) to understand the broader scope of this project.  
 
 ---
 
-> [!TIP]
-> Hi everyone! Hope you're doing well, this is to let you know that you can access webapps hosted on public links using these credentials:  
-> ### HealthCare Interface 🔗  
-> **HealthCare Number** :  2021071042  
-> **License Number** :     2021071042  
-> **Password** : 00000  
+> **Note**  
+> - We have increased request limits for certain operations. If you encounter any exhaustion, please let us know to extend them further.  
+> - As part of ongoing development, some accounts may be removed to improve the platform.  
+> - Major updates are underway. If you face access issues, please check back after 1-2 days. Thank you for your patience and understanding!  
 
-> [!NOTE]
-> I've increased Request limits for above ID's, If exhausted let me know I'll increase it.  
-> We may occasionally delete accounts inorder to improve the platform, it is part of our development process.  
-> Platform is under going some major changes, if in case you are not able to access these webpages, please try again after 1 - 2 days.  
 ---
-
-
-
 
 ## Table of Contents
 
-- [About this Project](#about-this-project)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Contributing](#contributing)
-- [License](#license)
+- [About This Project](#about-this-project)  
+- [Features](#features)  
+- [Tech Stack](#tech-stack)  
+- [Installation](#installation)  
+- [Contributing](#contributing)  
+- [License](#license)  
 
 ---
 
-## About this Project
-**Healthcare Interface**: Designed for healthcare professionals to manage patient records, search for patients, and update vaccination or check-up logs.
+## About This Project
+
+The **Bharat Seva+ Healthcare Interface** is your gateway to modernized healthcare management. Built with scalability and performance in mind, this platform serves as a secure and user-friendly solution for healthcare professionals and patients. While the backend offers a rich set of features to ensure seamless operations, the current frontend implementation is continuously evolving to match the backend's full potential.  
+
+### Exciting News!
+We are actively working on integrating a **deep learning model** that will redefine the way healthcare data is managed and analyzed. This upcoming feature aims to provide intelligent insights and predictive capabilities to enhance user experience and decision-making.
 
 ---
 
 ## Features
 
-- **Digital Health Records**: Store and manage comprehensive patient health records in a secure cloud environment.
-- **Appointments**: Easily schedule and manage appointments between patients and healthcare providers.
-- **Search and Track**: Healthcare professionals can search patient data for vaccination or health check-up purposes.
-- **Security**: Uses modern security practices, including OAuth 2.0, JWT for sessions, and Firebase authentication.
-- **Cloud Storage**: Records are stored safely on the cloud using MongoDB and Firebase.
-- **Upcoming Features**: Video-text messaging between patients and healthcare professionals.
+- **Comprehensive Health Records**: Securely store and manage detailed patient health records in the cloud.  
+- **Appointment Scheduling**: Facilitate smooth appointment booking and management between patients and providers.  
+- **Search Functionality**: Quickly search patient data for vaccination records or health check-up details.  
+- **Secure Authentication**: Implementing robust security with OAuth 2.0 and JWT.  
+- **Backend Excellence**: The backend supports advanced features like scalability, performance optimization, and asynchronous task processing with RabbitMQ.  
+- **Deep Learning in Progress**: Upcoming enhancements will include predictive analytics and personalized healthcare insights.  
 
 ---
 
 ## Tech Stack
-- **Frontend**: React.js
-- **Backend**: Golang, Nginx, Docker, RabbitMQ
-- **Database**: MongoDB, Postgres
-- **Authentication**: OAuth 2.0, JWT
+
+- **Frontend**: React.js  
+- **Backend**: Golang, Nginx, RabbitMQ, Docker  
+- **Databases**: MongoDB, PostgreSQL  
+- **Authentication**: OAuth 2.0, JWT  
+
 ---
 
 ## Installation
-### Steps
 
-1. **Clone the repository**:
-   ```
+### Steps to Get Started
+
+1. **Clone the repository**:  
+   ```bash
    git clone https://github.com/BharatSeva/HealthCare-Interface.git
    cd HealthCare-Interface
    ```
-2. **Install dependencies**: Navigate to the server directory and install dependencies:  
-	```
-	npm install
- 	```
-4. **Environment Variables**: Create .env.production  and .env.development file in the root directory of the server with the following variables:   
-	```
- 	# FOR PRODUCTION
-	REACT_APP_API_URL=http://57.154.208.100/api/v1/healthcare  # Do not include trailing '/' in URL 
-	```  
-	```
- 	# FOR DEVELOPMENT
- 	REACT_APP_API_URL=http://localhost/api/v1/healthcare # Do not include trailing '/' in URL 
- 	```  
-5. Run the application using  
-	```
- 	npm start
-  	```
+2. **Install dependencies**:
 
-> You can set up backend for this project to test your application!  
-> Refer to Healthcare Server to know to setup and test your application    
+```bash
+npm install
+```
+3. **Environment Variables**:
+Create .env.production and .env.development files in the project root with the following variables:  
+For Development  
 
+```bash
+REACT_APP_API_URL=http://localhost:3000/api/v1/healthcare
+```
+4. **Run the Application**:
+
+```bash
+npm start
+```
+5. **Backend Setup**:
+To fully test the interface, ensure the backend is running. Refer to the Healthcare Server Repository for [setup instructions](https://github.com/BharatSeva/Healthcare-Server).
 
 ## Contributing
-We welcome contributions from the open-source community! Whether it's fixing bugs, adding new features, or improving documentation, your help is appreciated.   
-Please refer to [CONTRIBUTING.md](./CONTRIBUTING.md) file for more information on how to contribute
+We love contributions! Whether you’re fixing bugs, suggesting new features, or improving documentation, your help is welcome.
+Please check out CONTRIBUTING.md for guidelines and best practices.
 
 ## License
 This project is licensed under the MIT License.
 
-Contact
-For any questions or inquiries regarding this project, feel free to reach out or start the discussion. 
+

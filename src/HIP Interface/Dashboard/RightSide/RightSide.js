@@ -8,7 +8,7 @@ import ViewRecord from "./ViewRecord/ViewRecord"
 import ViewPatientBioData from "./View_PatientBioData/ViewPatientBioData"
 import { Routes, Route } from "react-router-dom"
 import IsNavBarAuthenticated from "../../IsNavBarAuthenticated"
-
+import About from "./about";
 
 export default function RightSide() {
 
@@ -17,7 +17,8 @@ export default function RightSide() {
             <div className="RightSideBar DisplayFlexJustify">
                 <Routes>
                     <Route element={<IsNavBarAuthenticated />}>
-                        <Route index element={<Home />} />
+                        <Route index element={<About />} />
+                        <Route path="home" element={<Home />} />
                         <Route path="viewrecords" element={<ViewRecord />} />
                         <Route path="createrecords" element={<CreatePatientRecord />} />
                         <Route path="viewpatientbiodata" element={< ViewPatientBioData />} />
