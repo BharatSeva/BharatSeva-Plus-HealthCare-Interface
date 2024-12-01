@@ -1,5 +1,6 @@
 name: Deploy
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -49,7 +50,7 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             mkdir -p /home/${{ secrets.USERNAME }}/server/static_healthcare
-            sudo chmod -R 755 /home/${{ secrets.USERNAME }}/server
+            sudo chown -R ${{ secrets.USERNAME }}:${{ secrets.USERNAME }} ~/server
 
       - name: Copy build files to server
         run: |
